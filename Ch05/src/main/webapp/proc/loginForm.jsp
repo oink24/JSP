@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
+	// 로그인 폼 띄우기 전에
 	// 자동 로그인 체크여부에 따라 로그인 처리
-	Cookie[] cookies = request.getCookies();
+	Cookie[] cookies = request.getCookies(); // loginProc에서 전송한 쿠키 수신
 	
 	for (Cookie cookie : cookies)
 	{

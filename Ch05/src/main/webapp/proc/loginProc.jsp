@@ -16,8 +16,8 @@
 		if (auto != null)
 		{
 			Cookie autoCookie = new Cookie("cid", id);
-			autoCookie.setMaxAge(60*3); // 3분으로 쿠키 유통기한 설정
-			response.addCookie(autoCookie);
+			autoCookie.setMaxAge(60*3); // 3분으로 쿠키 유효기한 설정
+			response.addCookie(autoCookie); // 쿠키 전송
 		}
 		
 		// 회원일 경우 -> 세션 기록
