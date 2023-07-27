@@ -4,7 +4,7 @@
 	
 	if (sessId == null)
 	{
-		response.sendRedirect("../2_session.jsp");
+		response.sendRedirect("./loginForm.jsp");
 		return;
 	}
 %>
