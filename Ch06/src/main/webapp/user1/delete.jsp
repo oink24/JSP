@@ -11,13 +11,13 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>user2::delete</title>
 	</head>
 	<body>
 		<form action="/Ch06/user1/deleteProc.jsp?uid=<%= uid %>" method="post">
 			<table border="1">
 				<tr>
-					<td>아이디 <b><%= uid %> 삭제</b>하시겠습니까?</td>
+					<td>아이디 <b><%= uid %>를 삭제</b>하시겠습니까?</td>
 				</tr>
 				<tr>
 					<td align="right">

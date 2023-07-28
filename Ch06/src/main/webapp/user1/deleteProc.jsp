@@ -10,7 +10,7 @@
 	String uid = request.getParameter("uid");
 	
 	// 데이터베이스 처리
-	String host = "jdbc:mysql://127.0.0.1:3306/userdb?useSSL=false";
+	String host = "jdbc:mysql://127.0.0.1:3306/userdb";
 	String user = "root";
 	String pass = "1234";
 	
