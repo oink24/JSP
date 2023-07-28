@@ -66,7 +66,7 @@
 				<td><%= vo.getHp() %></td>
 				<td><%= vo.getAge() %></td>
 				<td>
-					<!-- 수정을 위한 아이디 값 get방식으로 전송 -->
+					<!-- 수정과 삭제를 위한 uid 값 get방식으로 전송 -->
 					<input type="button" value="수정" onclick="location.href='/Ch06/user1/modify.jsp?uid=<%= vo.getUid() %>'">
 					<input type="button" value="삭제" onclick="location.href='/Ch06/user1/delete.jsp?uid=<%= vo.getUid() %>'">
 				</td>
