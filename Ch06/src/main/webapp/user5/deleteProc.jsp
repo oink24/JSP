@@ -7,7 +7,7 @@
 	request.setCharacterEncoding("UTF-8");
 
 	// 전송데이터 수신
-	String seq = request.getParameter("seq");
+	String uid = request.getParameter("uid");
 	
 	// 데이터베이스 처리
 	String host = "jdbc:mysql://127.0.0.1:3306/userdb";
@@ -18,8 +18,8 @@
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		
-		PreparedStatement psmt = conn.prepareStatement("DELETE FROM `user4` WHERE `seq`=?");
-		psmt.setString(1, seq);
+		PreparedStatement psmt = conn.prepareStatement("DELETE FROM `user5` WHERE `uid`=?");
+		psmt.setString(1, uid);
 		
 		psmt.executeUpdate();
 		
@@ -30,5 +30,5 @@
 		e.printStackTrace();
 	}
 	
-	response.sendRedirect("/Ch06/user4/list.jsp");
+	response.sendRedirect("/Ch06/user5/list.jsp");
 %>

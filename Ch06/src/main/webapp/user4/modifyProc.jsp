@@ -1,6 +1,6 @@
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.DriverManager"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	//인코딩 설정 
@@ -20,7 +20,7 @@
 	
 	try{
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn =  DriverManager.getConnection(host, user, pass);
+		Connection conn = DriverManager.getConnection(host, user, pass);
 
 		PreparedStatement psmt = conn.prepareStatement("UPDATE `user4` SET `name`=?, `gender`=?, `age`=?, `addr`=? WHERE `seq`=?");
 		psmt.setString(1, name);
