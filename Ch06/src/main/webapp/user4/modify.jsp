@@ -1,10 +1,10 @@
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="vo.User4VO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.PreparedStatement"%>
+<%@ page import="vo.User4VO"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	// 인코딩 설정
@@ -52,12 +52,16 @@
 		<title>user4::modify</title>
 	</head>
 	<body>
-		<h4>user4 수정</h4>
+		<h4>User4 수정</h4>
 		<input type="button" value="처음으로" onclick="location.href='/Ch06/1_JDBC.jsp'">
 		<input type="button" value="User4 목록" onclick="location.href='/Ch06/user4/list.jsp'">
 
 		<form action="/Ch06/user4/modifyProc.jsp" method="post">
 			<table border="1">
+				<tr>
+					<td>seq</td>
+					<td><input type="text" name="seq" readonly value=<%= vo.getSeq() %>></td>
+				</tr>
 				<tr>
 					<td>이름</td>
 					<td><input type="text" name="name" value=<%= vo.getName() %>></td>

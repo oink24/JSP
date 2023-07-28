@@ -6,7 +6,7 @@
 		<title>user4::register</title>
 	</head>
 	<body>
-		<h4>user4 등록</h4>
+		<h4>User4 등록</h4>
 		<input type="button" value="처음으로" onclick="location.href='/Ch06/1_JDBC.jsp'">
 		<input type="button" value="User4 목록" onclick="location.href='/Ch06/user4/list.jsp'">
 		
