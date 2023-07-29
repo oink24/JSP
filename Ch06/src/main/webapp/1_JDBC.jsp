@@ -17,6 +17,7 @@
 		<input type="button" value="User2 CRUD 실습" onclick="location.href='/Ch06/user2/register.jsp'"><br><br>
 		<input type="button" value="User3 CRUD 실습" onclick="location.href='/Ch06/user3/register.jsp'"><br><br>
 		<input type="button" value="User4 CRUD 실습" onclick="location.href='/Ch06/user4/register.jsp'"><br><br>
-		<input type="button" value="User5 CRUD 실습" onclick="location.href='/Ch06/user5/register.jsp'">
+		<input type="button" value="User5 CRUD 실습" onclick="location.href='/Ch06/user5/register.jsp'"><br><br>
+		<input type="button" value="Member CRUD 실습" onclick="location.href='/Ch06/member/register.jsp'">
 	</body>
 </html>
