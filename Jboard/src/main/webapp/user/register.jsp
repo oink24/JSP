@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jboard::register</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+    	$(function(){
+    		
+    		// 아이디 중복체크
+    		$('#btnCheckUid').click(function(){
+    			const uid = $('input[name=uid]').val();
+    			const jsonData = {
+    				"uid": uid
+    			};
+    			$.ajax({
+    				url: '/Jboard/user/checkUid.jsp',
+    				type: 'GET',
+    				data: jsonData,
+    				dataType: 'json',
+    				success: function(data){
+    					if (data.result >= 1)
+   						{
+   							$('.resultId').css('color', 'red').text('이미 사용중인 아이디입니다.');
+   						}
+    					else
+    					{
+    						$('.resultId').css('color', 'red').text('사용 가능한 아이디입니다.');
+    					}
+    				}
+    			}) // ajax end
+    		}); // btnCheckUid end
+    	});
+    </script>
 </head>
 <body>
     <div id="container">
@@ -14,7 +43,7 @@
         </header>
         <main>
             <section class="register">
-                <form action="#" method="post">
+                <form action="/Jboard/user/registerProc.jsp" method="post">
                     <table border="1">
                         <caption>사이트 이용정보 입력</caption>
                         <tbody>
@@ -22,7 +51,8 @@
                                 <td>아이디</td>
                                 <td>
                                     <input type="text" name="uid" placeholder="아이디 입력">
-                                    <button><img src="../images/chk_id.gif" alt="중복확인"></button>
+                                    <button type="button" id="btnCheckUid"><img src="../images/chk_id.gif" alt="중복확인"></button>
+                                	<span class="resultId"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -71,21 +101,21 @@
                                 <td>주소</td>
                                 <td>
                                     <div>
-                                        <input type="text" name="addr1" placeholder="우편번호">
+                                        <input type="text" name="zip" placeholder="우편번호">
                                         <button class="btnAddr"><img src="../images/chk_post.gif"></button>
                                     </div>
                                     <div>
-                                        <input type="text" readonly name="addr2" placeholder="주소를 검색하세요.">
+                                        <input type="text" readonly name="addr1" placeholder="주소를 검색하세요.">
                                     </div>
                                     <div>
-                                        <input type="text" name="addr3" placeholder="상세주소를 입력하세요.">
+                                        <input type="text" name="addr2" placeholder="상세주소를 입력하세요.">
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div>
-                        <a href="#" class="btnCancel">취소</a>
+                        <a href="/Jboard/user/login.jsp" class="btnCancel">취소</a>
                         <input type="submit" class="btnJoin" value="회원가입">
                     </div>
                 </form>
