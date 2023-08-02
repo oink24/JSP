@@ -1,10 +1,64 @@
+<%@ page import="kr.co.jboard.vo.TermsVO"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="javax.sql.DataSource"%>
+<%@ page import="javax.naming.InitialContext"%>
+<%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	TermsVO vo = new TermsVO();
+
+	try {
+		Context initCtx = new InitialContext();
+		Context ctx = (Context) initCtx.lookup("java:comp/env");
+		DataSource ds = (DataSource) ctx.lookup("jdbc/Jboard");
+		
+		Connection conn = ds.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM `terms`");
+		
+		if(rs.next())
+		{
+			vo.setTerms(rs.getString(1));
+			vo.setPrivacy(rs.getString(2));
+		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jboard::terms</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+    	$(function(){
+    		
+    		$('a:eq(1)').click(function(e){
+    			e.preventDefault();
+    			
+    			const chk1 = $('input:checkbox[name="chk1"]');
+    			const chk2 = $('input:checkbox[name="chk2"]');
+    			
+    			if (chk1.is(':checked') == false)
+       			{
+       				alert('사이트 이용 약관에 동의를 하셔야 회원가입 하실 수 있습니다.');
+       			}
+    			else if (chk2.is(':checked') == false)
+   				{
+    				alert('개인정보 취급 방침에 동의를 하셔야 회원가입 하실 수 있습니다.');
+   				}
+    		}); // a:eq(1) click end
+    	});
+    </script>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -20,7 +74,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <textarea readonly>사이트이용 약관 내용</textarea>
+                                    <textarea readonly><%= vo.getTerms() %></textarea>
                                     <label><input type="checkbox" name="chk1">동의합니다.</label>
                                 </td>
                             </tr>
@@ -31,15 +85,15 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <textarea readonly>개인정보 약관 내용</textarea>
-                                    <label><input type="checkbox" name="chk1">동의합니다.</label>
+                                    <textarea readonly><%= vo.getPrivacy() %></textarea>
+                                    <label><input type="checkbox" name="chk2">동의합니다.</label>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                     <div>
-                        <a href="#">취소</a>
-                        <a href="#">다음</a>
+                        <a href="/Jboard/user/login.jsp">취소</a>
+                        <a href="/Jboard/user/register.jsp">다음</a>
                     </div>
                 </form>
             </section>
