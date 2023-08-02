@@ -43,17 +43,18 @@
     	$(function(){
     		
     		$('a:eq(1)').click(function(e){
-    			e.preventDefault();
     			
     			const chk1 = $('input:checkbox[name="chk1"]');
     			const chk2 = $('input:checkbox[name="chk2"]');
     			
     			if (chk1.is(':checked') == false)
        			{
+    				e.preventDefault();
        				alert('사이트 이용 약관에 동의를 하셔야 회원가입 하실 수 있습니다.');
        			}
     			else if (chk2.is(':checked') == false)
    				{
+    				e.preventDefault();
     				alert('개인정보 취급 방침에 동의를 하셔야 회원가입 하실 수 있습니다.');
    				}
     		}); // a:eq(1) click end
