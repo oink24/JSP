@@ -7,34 +7,9 @@
     <title>Jboard::register</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script>
-    	$(function(){
-    		
-    		// 아이디 중복체크
-    		$('#btnCheckUid').click(function(){
-    			const uid = $('input[name=uid]').val();
-    			const jsonData = {
-    				"uid": uid
-    			};
-    			$.ajax({
-    				url: '/Jboard/user/checkUid.jsp',
-    				type: 'GET',
-    				data: jsonData,
-    				dataType: 'json',
-    				success: function(data){
-    					if (data.result >= 1)
-   						{
-   							$('.resultId').css('color', 'red').text('이미 사용중인 아이디입니다.');
-   						}
-    					else
-    					{
-    						$('.resultId').css('color', 'red').text('사용 가능한 아이디입니다.');
-    					}
-    				}
-    			}) // ajax end
-    		}); // btnCheckUid end
-    	});
-    </script>
+    <script src="/Jboard/js/checkUser.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="/Jboard/js/zipcode.js"></script>
 </head>
 <body>
     <div id="container">
@@ -43,7 +18,7 @@
         </header>
         <main>
             <section class="register">
-                <form action="/Jboard/user/registerProc.jsp" method="post">
+                <form id="formUser" action="/Jboard/user/registerProc.jsp" method="post">
                     <table border="1">
                         <caption>사이트 이용정보 입력</caption>
                         <tbody>
@@ -83,18 +58,21 @@
                                 <td>
                                     <p>공백 없이 한글, 영문, 숫자만 입력가능</p>
                                     <input type="text" name="nickname" placeholder="별명 입력">
+                                    <span class="resultNickname"></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>E-Mail</td>
                                 <td>
                                     <input type="text" name="email" placeholder="이메일 입력">
+                                    <span class="resultEmail"></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td>휴대폰</td>
                                 <td>
                                     <input type="text" name="hp" placeholder="- 포함 13자리 입력" minlength="13" maxlength="13">
+                                	<span class="resultHp"></span>
                                 </td>
                             </tr>
                             <tr>
@@ -102,7 +80,7 @@
                                 <td>
                                     <div>
                                         <input type="text" name="zip" placeholder="우편번호">
-                                        <button class="btnAddr"><img src="../images/chk_post.gif"></button>
+                                        <button type="button" class="btnZip" onclick="zipcode()"><img src="../images/chk_post.gif"></button>
                                     </div>
                                     <div>
                                         <input type="text" readonly name="addr1" placeholder="주소를 검색하세요.">
