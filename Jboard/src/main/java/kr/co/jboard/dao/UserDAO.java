@@ -27,7 +27,7 @@ public class UserDAO extends DBHelper {
 		try {
 			conn = getConnection();
 			
-			psmt = conn.prepareStatement(SQL.SELECT_USER);
+			psmt = conn.prepareStatement(SQL.INSERT_USER);
 			psmt.setString(1, vo.getUid());
 			psmt.setString(2, vo.getPass());
 			psmt.setString(3, vo.getName());
@@ -55,7 +55,7 @@ public class UserDAO extends DBHelper {
 		try {
 			conn = getConnection();
 			
-			psmt = conn.prepareStatement(SQL.INSERT_USER);
+			psmt = conn.prepareStatement(SQL.SELECT_USER);
 			psmt.setString(1, uid);
 			psmt.setString(2, pass);
 			
