@@ -1,3 +1,4 @@
+<%@page import="kr.co.jboard.dao.UserDAO"%>
 <%@ page import="com.google.gson.JsonObject"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.PreparedStatement"%>
@@ -11,9 +12,7 @@
 
 	String email = request.getParameter("email");
 	
-	int result = 0;
-	
-	
+	int result = UserDAO.getInstance().selectCountEmail(email);
 	
 	// JSON 생성
 	JsonObject json = new JsonObject();
