@@ -1,3 +1,5 @@
+<%@ page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.dao.UserDAO"%>
 <%@ page import="java.sql.PreparedStatement"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="javax.sql.DataSource"%>
@@ -21,33 +23,19 @@
 	String addr2 = request.getParameter("addr2");
 	String regip = request.getRemoteAddr();
 	
-	try {
-		Context initCtx = new InitialContext();
-		Context ctx = (Context) initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource) ctx.lookup("jdbc/Jboard");
-		
-		Connection conn = ds.getConnection();
-		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `user` (`uid`, `pass`, `name`, `nickname`, `email`, `hp`, `zip`, `addr1`, `addr2`, `regip`, `regDate`)"
-															+ " VALUES (?,SHA2(?, 256),?,?,?,?,?,?,?,?,NOW())");
-		psmt.setString(1, uid);
-		psmt.setString(2, pass1);
-		psmt.setString(3, name);
-		psmt.setString(4, nickname);
-		psmt.setString(5, email);
-		psmt.setString(6, hp);
-		psmt.setString(7, zip);
-		psmt.setString(8, addr1);
-		psmt.setString(9, addr2);
-		psmt.setString(10, regip);
-		
-		psmt.executeUpdate();
-		
-		psmt.close();
-		conn.close();
-		
-	}catch(Exception e){
-		e.printStackTrace();
-	}
+	UserVO vo = new UserVO();
+	vo.setUid(uid);
+	vo.setPass(pass1);
+	vo.setName(name);
+	vo.setNickname(nickname);
+	vo.setEmail(email);
+	vo.setHp(hp);
+	vo.setZip(zip);
+	vo.setAddr1(addr1);
+	vo.setAddr2(addr2);
+	vo.setRegip(regip);
+	
+	UserDAO.getInstance().insertUser(vo);
 	
 	response.sendRedirect("/Jboard/user/login.jsp");
 %>
