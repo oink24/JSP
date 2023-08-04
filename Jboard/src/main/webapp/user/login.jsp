@@ -1,4 +1,4 @@
-<%@page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.vo.UserVO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -18,7 +18,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jboard::login</title>
+    <title>로그인</title>
     <link rel="stylesheet" href="/Jboard/css/style.css">
 	<script>
 		const success = <%= success %>;
@@ -41,7 +41,7 @@
         <main>
             <section class="login">
                 <form action="/Jboard/user/loginProc.jsp" method="post">
-                    <table border="0">
+                    <table>
                         <tr>
                             <td><img src="/Jboard/images/login_ico_id.png" alt="id"></td>
                             <td><input type="text" name="uid" placeholder="아이디 입력"></td>

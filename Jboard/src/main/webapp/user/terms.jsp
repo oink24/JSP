@@ -1,3 +1,4 @@
+<%@ page import="kr.co.jboard.dao.UserDAO"%>
 <%@ page import="kr.co.jboard.vo.TermsVO"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
@@ -7,37 +8,14 @@
 <%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	TermsVO vo = new TermsVO();
-
-	try {
-		Context initCtx = new InitialContext();
-		Context ctx = (Context) initCtx.lookup("java:comp/env");
-		DataSource ds = (DataSource) ctx.lookup("jdbc/Jboard");
-		
-		Connection conn = ds.getConnection();
-		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM `terms`");
-		
-		if(rs.next())
-		{
-			vo.setTerms(rs.getString(1));
-			vo.setPrivacy(rs.getString(2));
-		}
-		
-		rs.close();
-		stmt.close();
-		conn.close();
-		
-	}catch(Exception e){
-		e.printStackTrace();
-	}
+	TermsVO vo = UserDAO.getInstance().selectTerms();
 %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jboard::terms</title>
+    <title>약관</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
@@ -70,7 +48,7 @@
         <main>
             <section class="terms">
                 <form action="#">
-                    <table border="0">
+                    <table>
                         <caption>사이트 이용 약관</caption>
                         <tbody>
                             <tr>
@@ -81,7 +59,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table border="0">
+                    <table>
                         <caption>개인정보 취급방침</caption>
                         <tbody>
                             <tr>

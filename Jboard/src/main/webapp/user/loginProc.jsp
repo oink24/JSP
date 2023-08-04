@@ -1,11 +1,5 @@
 <%@ page import="kr.co.jboard.dao.UserDAO"%>
 <%@ page import="kr.co.jboard.vo.UserVO"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="java.sql.PreparedStatement"%>
-<%@ page import="java.sql.Connection"%>
-<%@ page import="javax.sql.DataSource"%>
-<%@ page import="javax.naming.InitialContext"%>
-<%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%
 	// 전송데이터 수신

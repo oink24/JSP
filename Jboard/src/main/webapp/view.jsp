@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jboard::view</title>
+    <title>글 보기</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <section id="board" class="view">
                 <form action="#">
                     <h3>글 보기</h3>
-                    <table border="0">
+                    <table>
                         <tr>
                             <td>제목</td>
                             <td>

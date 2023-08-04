@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jboard::list</title>
+    <title>글 목록</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
                 <form action="#">
                     <h3>글 목록</h3>
                     <article>
-                        <table border="0">
+                        <table>
                             <tr>
                                 <th>번호</th>
                                 <th>제목</th>

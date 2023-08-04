@@ -1,15 +1,8 @@
 package kr.co.jboard.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import kr.co.jboard.db.DBHelper;
 import kr.co.jboard.db.SQL;
+import kr.co.jboard.vo.TermsVO;
 import kr.co.jboard.vo.UserVO;
 
 public class UserDAO extends DBHelper {
@@ -22,6 +15,28 @@ public class UserDAO extends DBHelper {
 	private UserDAO() {}
 	
 	// CRUD
+	public TermsVO selectTerms() {
+		TermsVO vo = new TermsVO();
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(SQL.SELECT_TERMS);
+			
+			if(rs.next())
+			{
+				vo.setTerms(rs.getString(1));
+				vo.setPrivacy(rs.getString(2));
+			}
+			
+			close();
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}
+	
 	public void insertUser(UserVO vo) {
 		
 		try {

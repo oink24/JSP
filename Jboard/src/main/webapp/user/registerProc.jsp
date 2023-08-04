@@ -1,10 +1,5 @@
 <%@ page import="kr.co.jboard.vo.UserVO"%>
 <%@ page import="kr.co.jboard.dao.UserDAO"%>
-<%@ page import="java.sql.PreparedStatement"%>
-<%@ page import="java.sql.Connection"%>
-<%@ page import="javax.sql.DataSource"%>
-<%@ page import="javax.naming.InitialContext"%>
-<%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	// 인코딩 설정
