@@ -1,4 +1,15 @@
+<%@ page import="kr.co.jboard.vo.UserVO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	// 현재 로그인 사용자 가져오기
+	UserVO sessUser = (UserVO) session.getAttribute("sessUser");
+
+	if (sessUser == null)
+	{
+		response.sendRedirect("/Jboard/user/login.jsp?success=101");
+		return;
+	}
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +23,8 @@
         <header>
             <h3>Board System v1.0</h3>
             <p>
-                OOO님 반갑습니다.
-                <a href="#" class="logout">[로그아웃]</a>
+                <%= sessUser.getNickname() %>님 반갑습니다.
+                <a href="/Jboard/user/logout.jsp" class="logout">[로그아웃]</a>
             </p>
         </header>
         <main>
