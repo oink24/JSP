@@ -28,7 +28,7 @@
 		
 		Connection conn = ds.getConnection();
 		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `user` (`uid`, `pass`, `name`, `nickname`, `email`, `hp`, `zip`, `addr1`, `addr2`, `regip`, `regDate`)"
-															+ " VALUES (?,?,?,?,?,?,?,?,?,?,NOW())");
+															+ " VALUES (?,SHA2(?, 256),?,?,?,?,?,?,?,?,NOW())");
 		psmt.setString(1, uid);
 		psmt.setString(2, pass1);
 		psmt.setString(3, name);
