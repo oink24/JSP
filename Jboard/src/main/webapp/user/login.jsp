@@ -1,7 +1,17 @@
+<%@page import="kr.co.jboard.vo.UserVO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String success = request.getParameter("success");
+	
+	// 현재 사용자 로그인 여부 확인
+	UserVO sessUser = (UserVO) session.getAttribute("sessUser");
+	
+	if (sessUser != null) // 로그인 페이지로 넘어가는 것이 아니라 리스트로 AND return
+	{
+		response.sendRedirect("/Jboard/list.jsp");
+		return; // 로그인페이지로 강제로 이동하고 싶어도 이동 불가
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jboard::login</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="/Jboard/css/style.css">
 	<script>
 		const success = <%= success %>;
 		
@@ -33,11 +43,11 @@
                 <form action="/Jboard/user/loginProc.jsp" method="post">
                     <table border="0">
                         <tr>
-                            <td><img src="../images/login_ico_id.png" alt="id"></td>
+                            <td><img src="/Jboard/images/login_ico_id.png" alt="id"></td>
                             <td><input type="text" name="uid" placeholder="아이디 입력"></td>
                         </tr>
                         <tr>
-                            <td><img src="../images/login_ico_pw.png" alt="pw"></td>
+                            <td><img src="/Jboard/images/login_ico_pw.png" alt="pw"></td>
                             <td><input type="password" name="pass" placeholder="비밀번호 입력"></td>
                         </tr>
                     </table>
