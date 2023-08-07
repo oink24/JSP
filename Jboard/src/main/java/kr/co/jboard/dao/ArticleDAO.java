@@ -18,6 +18,8 @@ public class ArticleDAO extends DBHelper {
 			psmt.setString(3, vo.getWriter());
 			psmt.setString(4, vo.getRegip());
 			
+			psmt.executeUpdate();
+			
 			close();
 			
 		}catch(Exception e){
