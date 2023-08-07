@@ -1,24 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>글 보기</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <div id="container">
-        <header>
-            <h3>Board System v1.0</h3>
-            <p>
-                OOO님 반갑습니다.
-                <a href="#" class="logout">[로그아웃]</a>
-            </p>
-        </header>
+<%@ include file="./_header.jsp" %>
         <main>
             <section id="board" class="view">
-                <form action="#">
                     <h3>글 보기</h3>
                     <table>
                         <tr>
@@ -75,12 +58,6 @@
                             </div>
                         </form>
                     </section>
-                </form>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright github.com/oink24</p>
-        </footer>
-    </div>
-</body>
-</html>
+        <%@ include file="./_footer.jsp" %>
