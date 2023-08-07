@@ -1,5 +1,5 @@
-<%@page import="kr.co.jboard.vo.ArticleVO"%>
-<%@page import="kr.co.jboard.dao.ArticleDAO"%>
+<%@ page import="kr.co.jboard.vo.ArticleVO"%>
+<%@ page import="kr.co.jboard.dao.ArticleDAO"%>
 <%@ page import="kr.co.jboard.db.SQL"%>
 <%@ page import="java.sql.PreparedStatement"%>
 <%@ page import="java.sql.Connection"%>
