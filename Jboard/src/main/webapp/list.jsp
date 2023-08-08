@@ -25,7 +25,7 @@ request.setCharacterEncoding("UTF-8");
 	if (pg != null)
 		currentPage = Integer.parseInt(pg);
 	
-	// 현제 페이지 게시물 LIMIT 시작번호
+	// 현재 페이지 게시물 LIMIT 시작번호
 	start = (currentPage - 1) * 10;
 	
 	// 전체 게시글 갯수 조회
