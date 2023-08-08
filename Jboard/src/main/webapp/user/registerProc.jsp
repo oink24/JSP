@@ -1,8 +1,8 @@
-<%@ page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page import="kr.co.jboard.dao.UserDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	// 인코딩 설정
+// 인코딩 설정
 	request.setCharacterEncoding("UTF-8");
 
 	// 전송데이터 수신
@@ -18,7 +18,7 @@
 	String addr2 = request.getParameter("addr2");
 	String regip = request.getRemoteAddr();
 	
-	UserVO vo = new UserVO();
+	UserDTO vo = new UserDTO();
 	vo.setUid(uid);
 	vo.setPass(pass1);
 	vo.setName(name);

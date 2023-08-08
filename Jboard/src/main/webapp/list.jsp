@@ -1,11 +1,11 @@
-<%@ page import="kr.co.jboard.vo.ArticleVO"%>
+<%@ page import="kr.co.jboard.dto.ArticleDTO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="kr.co.jboard.dao.ArticleDAO"%>
-<%@ page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 	String pg = request.getParameter("pg");
 	
 	// DAO 객체 생성
@@ -49,7 +49,7 @@
 	pageStartNum = total - start;
 	
 	// 현재 페이지 네비게이션 내 게시글 조회
-	List<ArticleVO> articles = dao.selectArticles(start);
+	List<ArticleDTO> articles = dao.selectArticles(start);
 %>
         <main>
             <section id="board" class="list">
@@ -63,7 +63,9 @@
                                 <th>날짜</th>
                                 <th>조회</th>
                             </tr>
-                            <% for(ArticleVO article : articles) { %>
+                            <%
+                            for(ArticleDTO article : articles) {
+                            %>
                             <tr>
                                 <td><%= pageStartNum-- %></td>
                                 <td>

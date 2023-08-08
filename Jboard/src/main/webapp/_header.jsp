@@ -1,7 +1,7 @@
-<%@ page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	UserVO sessUser = (UserVO) session.getAttribute("sessUser");
+UserDTO sessUser = (UserDTO) session.getAttribute("sessUser");
 
 	if (sessUser == null)
 	{

@@ -1,4 +1,4 @@
-<%@ page import="kr.co.jboard.vo.ArticleVO"%>
+<%@ page import="kr.co.jboard.dto.ArticleDTO"%>
 <%@ page import="kr.co.jboard.dao.ArticleDAO"%>
 <%@ page import="kr.co.jboard.db.SQL"%>
 <%@ page import="java.sql.PreparedStatement"%>
@@ -8,7 +8,7 @@
 <%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//전송 데이터 수신
+//전송 데이터 수신
 	request.setCharacterEncoding("UTF-8");
 	String title 	= request.getParameter("title");
 	String content 	= request.getParameter("content");
@@ -16,7 +16,7 @@
 	String writer 	= request.getParameter("writer");
 	String regip    = request.getRemoteAddr();
 	
-	ArticleVO vo = new ArticleVO();
+	ArticleDTO vo = new ArticleDTO();
 	vo.setTitle(title);
 	vo.setContent(content);
 	vo.setWriter(writer);

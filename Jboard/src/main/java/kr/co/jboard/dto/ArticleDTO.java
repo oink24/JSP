@@ -1,6 +1,6 @@
-package kr.co.jboard.vo;
+package kr.co.jboard.dto;
 
-public class ArticleVO {
+public class ArticleDTO {
 
 	private int no;
 	private int parent;

@@ -1,11 +1,11 @@
-<%@ page import="kr.co.jboard.vo.UserVO"%>
+<%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 	String success = request.getParameter("success");
 	
 	// 현재 사용자 로그인 여부 확인
-	UserVO sessUser = (UserVO) session.getAttribute("sessUser");
+	UserDTO sessUser = (UserDTO) session.getAttribute("sessUser");
 	
 	if (sessUser != null) // 로그인 페이지로 넘어가는 것이 아니라 리스트로 AND return
 	{

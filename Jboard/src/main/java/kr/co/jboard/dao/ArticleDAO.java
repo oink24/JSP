@@ -5,11 +5,11 @@ import java.util.List;
 
 import kr.co.jboard.db.DBHelper;
 import kr.co.jboard.db.SQL;
-import kr.co.jboard.vo.ArticleVO;
+import kr.co.jboard.dto.ArticleDTO;
 
 public class ArticleDAO extends DBHelper {
 	
-	public void insertArticle(ArticleVO vo) {
+	public void insertArticle(ArticleDTO vo) {
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_ARTICLE);
@@ -27,13 +27,13 @@ public class ArticleDAO extends DBHelper {
 		}
 	}
 	
-	public ArticleVO selectArticle(int no) {
+	public ArticleDTO selectArticle(int no) {
 		return null;
 	}
 	
-	public List<ArticleVO> selectArticles(int start) {
+	public List<ArticleDTO> selectArticles(int start) {
 		
-		List<ArticleVO> articles = new ArrayList<>();
+		List<ArticleDTO> articles = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
@@ -44,7 +44,7 @@ public class ArticleDAO extends DBHelper {
 			
 			while(rs.next())
 			{
-				ArticleVO vo = new ArticleVO();
+				ArticleDTO vo = new ArticleDTO();
 				vo.setNo(rs.getInt(1));
 				vo.setParent(rs.getInt(2));
 				vo.setComment(rs.getInt(3));
@@ -70,7 +70,7 @@ public class ArticleDAO extends DBHelper {
 		return articles;
 	}
 	
-	public void updateArticle(ArticleVO vo) {
+	public void updateArticle(ArticleDTO vo) {
 		
 	}
 	

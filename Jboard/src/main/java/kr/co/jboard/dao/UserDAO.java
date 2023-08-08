@@ -2,8 +2,8 @@ package kr.co.jboard.dao;
 
 import kr.co.jboard.db.DBHelper;
 import kr.co.jboard.db.SQL;
-import kr.co.jboard.vo.TermsVO;
-import kr.co.jboard.vo.UserVO;
+import kr.co.jboard.dto.TermsDTO;
+import kr.co.jboard.dto.UserDTO;
 
 public class UserDAO extends DBHelper {
 
@@ -15,8 +15,8 @@ public class UserDAO extends DBHelper {
 	private UserDAO() {}
 	
 	// CRUD
-	public TermsVO selectTerms() {
-		TermsVO vo = new TermsVO();
+	public TermsDTO selectTerms() {
+		TermsDTO vo = new TermsDTO();
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -37,7 +37,7 @@ public class UserDAO extends DBHelper {
 		return vo;
 	}
 	
-	public void insertUser(UserVO vo) {
+	public void insertUser(UserDTO vo) {
 		
 		try {
 			conn = getConnection();
@@ -63,9 +63,9 @@ public class UserDAO extends DBHelper {
 		}
 	}
 	
-	public UserVO selectUser(String uid, String pass) {
+	public UserDTO selectUser(String uid, String pass) {
 		
-		UserVO user = null;
+		UserDTO user = null;
 		
 		try {
 			conn = getConnection();
@@ -78,7 +78,7 @@ public class UserDAO extends DBHelper {
 			
 			if (rs.next())
 			{
-				user = new UserVO();
+				user = new UserDTO();
 				user.setUid(rs.getString(1));
 				user.setPass(rs.getString(2));
 				user.setName(rs.getString(3));
