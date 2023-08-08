@@ -17,8 +17,8 @@ request.setCharacterEncoding("UTF-8");
 	int total = 0; // 전체 게시글 갯수
 	int lastPageNum = 0; // 페이지번호 계산 (총 페이지 / 10)
 	int pageGroupCurrent = 1; // 페이지 그룹 계산
-	int pageGroupStart = 1; // 페이지 그룹
-	int pageGroupEnd = 0; // 페이지 그룹 내 마지막 페이지번호
+	int pageGroupStart = 1; // 각 페이지그룹의 스타트 페이지 번호
+	int pageGroupEnd = 0; // 페이지그룹 내 마지막 페이지번호
 	int pageStartNum = 0; // 페이지 게시글 시작번호
 	
 	// 현재 페이지 계산
@@ -79,7 +79,7 @@ request.setCharacterEncoding("UTF-8");
                         </table>
                     </article>
                     
-                    <!-- 페이지 네비게이션 -->
+                    <!-- 페이지 내비게이션 -->
                     <div class="paging">
                     	<% if (pageGroupStart > 1) { %>
                         <a href="/Jboard/list.jsp?pg=<%= pageGroupStart - 1 %>" class="prev">이전</a>
