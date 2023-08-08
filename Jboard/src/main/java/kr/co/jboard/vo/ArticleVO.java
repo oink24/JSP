@@ -14,6 +14,9 @@ public class ArticleVO {
 	private String regip;
 	private String rdate;
 	
+	// 추가필드
+	private String nickname;
+	
 	public int getNo() {
 		return no;
 	}
@@ -82,5 +85,12 @@ public class ArticleVO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	// 추가필드
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 }

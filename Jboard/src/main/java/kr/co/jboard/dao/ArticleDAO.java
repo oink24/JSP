@@ -31,13 +31,15 @@ public class ArticleDAO extends DBHelper {
 		return null;
 	}
 	
-	public List<ArticleVO> selectArticles() {
+	public List<ArticleVO> selectArticles(int start) {
 		
 		List<ArticleVO> articles = new ArrayList<>();
 		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.SELECT_ARTICLES);
+			psmt.setInt(1, start);
+			
 			rs = psmt.executeQuery();
 			
 			while(rs.next())
@@ -54,6 +56,7 @@ public class ArticleDAO extends DBHelper {
 				vo.setWriter(rs.getString(9));
 				vo.setRegip(rs.getString(10));
 				vo.setRdate(rs.getString(11));
+				vo.setNickname(rs.getString(12));
 				
 				articles.add(vo);
 			}
@@ -73,5 +76,24 @@ public class ArticleDAO extends DBHelper {
 	
 	public void deleteArticle(int no) {
 		
+	}
+	
+	// 전체 게시글 갯수 조회
+	public int selectCountTotal() {
+		int total = 0;
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_TOTAL);
+			rs = psmt.executeQuery();
+			
+			if (rs.next())
+				total = rs.getInt(1);
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return total;
 	}
 }
