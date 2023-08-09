@@ -51,51 +51,51 @@
 	// 현재 페이지 네비게이션 내 게시글 조회
 	List<ArticleDTO> articles = dao.selectArticles(start);
 %>
-        <main>
-            <section id="board" class="list">
-                    <h3>글 목록</h3>
-                    <article>
-                        <table>
-                            <tr>
-                                <th>번호</th>
-                                <th>제목</th>
-                                <th>글쓴이</th>
-                                <th>날짜</th>
-                                <th>조회</th>
-                            </tr>
-                            <%
-                            for(ArticleDTO article : articles) {
-                            %>
-                            <tr>
-                                <td><%= pageStartNum-- %></td>
-                                <td>
-                                    <a href="/Jboard/view.jsp?no=<%= article.getNo() %>"><%= article.getTitle() %></a> [<%= article.getComment() %>]
-                                </td>
-                                <td><%= article.getNickname() %></td>
-                                <td><%= article.getRdate() %></td>
-                                <td><%= article.getHit() %></td>
-                            </tr>
-                            <% } %>
-                        </table>
-                    </article>
-                    
-                    <!-- 페이지 내비게이션 -->
-                    <div class="paging">
-                    	<% if (pageGroupStart > 1) { %>
-                        <a href="/Jboard/list.jsp?pg=<%= pageGroupStart - 1 %>" class="prev">이전</a>
-                        <% } %>
-                        
-                        <% for (int i=pageGroupStart ; i<=pageGroupEnd ; i++) { %>
-                        <a href="/Jboard/list.jsp?pg=<%= i %>" class="num <%= (currentPage == i)?"current":"" %>"><%= i %></a>
-                        <% } %>
-                        
-                        <% if (pageGroupEnd < lastPageNum) { %>
-                        <a href="/Jboard/list.jsp?pg=<%= pageGroupEnd + 1 %>" class="next">다음</a>
-                        <% } %>
-                    </div>
+<main>
+    <section id="board" class="list">
+        <h3>글 목록</h3>
+        <article>
+            <table>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>날짜</th>
+                    <th>조회</th>
+                </tr>
+                <%
+                for(ArticleDTO article : articles) {
+                %>
+                <tr>
+                    <td><%= pageStartNum-- %></td>
+                    <td>
+                        <a href="/Jboard/view.jsp?no=<%= article.getNo() %>"><%= article.getTitle() %></a> [<%= article.getComment() %>]
+                    </td>
+                    <td><%= article.getNickname() %></td>
+                    <td><%= article.getRdate() %></td>
+                    <td><%= article.getHit() %></td>
+                </tr>
+                <% } %>
+            </table>
+        </article>
+        
+        <!-- 페이지 내비게이션 -->
+        <div class="paging">
+        	<% if (pageGroupStart > 1) { %>
+            <a href="/Jboard/list.jsp?pg=<%= pageGroupStart - 1 %>" class="prev">이전</a>
+            <% } %>
+            
+            <% for (int i=pageGroupStart ; i<=pageGroupEnd ; i++) { %>
+            <a href="/Jboard/list.jsp?pg=<%= i %>" class="num <%= (currentPage == i)?"current":"" %>"><%= i %></a>
+            <% } %>
+            
+            <% if (pageGroupEnd < lastPageNum) { %>
+            <a href="/Jboard/list.jsp?pg=<%= pageGroupEnd + 1 %>" class="next">다음</a>
+            <% } %>
+        </div>
 
-                    <!-- 글쓰기 버튼 -->
-                    <a href="/Jboard/write.jsp" class="btnWrite">글쓰기</a>
-            </section>
-        </main>
-        <%@ include file="./_footer.jsp" %>
+        <!-- 글쓰기 버튼 -->
+        <a href="/Jboard/write.jsp" class="btnWrite">글쓰기</a>
+    </section>
+</main>
+<%@ include file="./_footer.jsp" %>
