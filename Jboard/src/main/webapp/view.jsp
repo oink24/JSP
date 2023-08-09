@@ -11,6 +11,19 @@
 	ArticleDTO dto = dao.selectArticle(no); // 해당 게시글 조회
 	List<ArticleDTO> comments = dao.selectComments(no); // 해당 게시글의 댓글 조회
 %>
+		<script>
+			$(function(){
+				
+				$('.del').click(function(){
+					const result = confirm('댓글을 삭제하시겠습니까?');
+					
+					if (result)
+						return true;
+					else
+						return false;
+				});
+			});
+		</script>
         <main>
             <section id="board" class="view">
                     <h3>글 보기</h3>
@@ -53,10 +66,13 @@
                                 <span><%= comment.getRdate() %></span>
                             </span>
                             <textarea name="comment" readonly><%= comment.getContent() %></textarea>
+                            
+                            <% if (sessUser.getUid().equals(comment.getWriter())) { %>
                             <div>
-                                <a href="#">삭제</a>
-                                <a href="#">수정</a>
+                                <a href="/Jboard/proc/commentDeleteProc.jsp?no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" class="del">삭제</a>
+                                <a href="#" class="modi">수정</a> <!-- 추후에 AJAX 통해 구현 예정 -->
                             </div>
+                            <% } %>
                         </article>
                         <% } %>
                         
@@ -71,9 +87,9 @@
                         <form action="/Jboard/proc/commentProc.jsp" method="post">
                         	<input type="hidden" name="parent" value="<%= no %>">
                         	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
-                            <textarea name="content"></textarea>
+                            <textarea name="content" class="content"></textarea>
                             <div>
-                                <a href="#" class="btnCancel">취소</a>
+                                <a href="/Jboard/proc/commentClearProc.jsp?no=<%= no %>" class="btnCancel">취소</a>
                                 <input type="submit" class="btnWrite" value="작성완료">
                             </div>
                         </form>

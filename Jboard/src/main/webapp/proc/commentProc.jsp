@@ -16,7 +16,7 @@
 	
 	ArticleDAO dao = new ArticleDAO();
 	dao.insertComment(dto); // 댓글 입력
-	dao.updateArticleForComment(parent); // 댓글 카운트 수정
+	dao.updateArticleForCommentPlus(parent); // 댓글 카운트 수정 (+)
 	
 	response.sendRedirect("/Jboard/view.jsp?no="+parent);
 %>

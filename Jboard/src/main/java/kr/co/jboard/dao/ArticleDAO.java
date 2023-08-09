@@ -144,10 +144,10 @@ public class ArticleDAO extends DBHelper {
 			e.printStackTrace();
 		}
 	}
-	public void updateArticleForComment(String no) {
+	public void updateArticleForCommentPlus(String no) {
 		try {
 			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT);
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_PLUS);
 			psmt.setString(1, no);
 			
 			psmt.executeUpdate();
@@ -195,5 +195,35 @@ public class ArticleDAO extends DBHelper {
 		}
 		
 		return comments;
+	}
+	
+	// 댓글 삭제
+	public void deleteComment(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
+			psmt.setString(1, no);
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public void updateArticleForCommentMinus(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_MINUS);
+			psmt.setString(1, no);
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
