@@ -1,5 +1,16 @@
+<%@ page import="java.util.List"%>
+<%@ page import="kr.co.jboard.dto.ArticleDTO"%>
+<%@ page import="kr.co.jboard.dao.ArticleDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String no = request.getParameter("no");
+	
+	ArticleDAO dao = new ArticleDAO();
+	ArticleDTO dto = dao.selectArticle(no); // 해당 게시글 조회
+	List<ArticleDTO> comments = dao.selectComments(no); // 해당 게시글의 댓글 조회
+%>
         <main>
             <section id="board" class="view">
                     <h3>글 보기</h3>
@@ -7,9 +18,10 @@
                         <tr>
                             <td>제목</td>
                             <td>
-                                <input type="text" readonly name="title" value="제목입니다.">
+                                <input type="text" readonly name="title" value=<%= dto.getTitle() %>>
                             </td>
                         </tr>
+                        <% if (dto.getFile() > 0) { %> <!-- 파일이 포함된 글이므로 -->
                         <tr>
                             <td>첨부파일</td>
                             <td>
@@ -17,41 +29,49 @@
                                 <span>7회 다운로드</span>
                             </td>
                         </tr>
+                        <% } %>
                         <tr>
                             <td>내용</td>
                             <td>
-                                <textarea name="content" readonly>내용 샘플입니다.</textarea>
+                                <textarea name="content" readonly><%= dto.getContent() %></textarea>
                             </td>
                         </tr>
                     </table>
                     <div>
                         <a href="#" class="btnDelete">삭제</a>
                         <a href="#" class="btnModify">수정</a>
-                        <a href="#" class="btnList">목록</a>
+                        <a href="/Jboard/list.jsp" class="btnList">목록</a>
                     </div>
 
                     <!-- 댓글 리스트 -->
                     <section class="commentList">
                         <h3>댓글 목록</h3>
+                        <% for (ArticleDTO comment : comments) { %>
                         <article class="comment">
                             <span>
-                                <span>길동이</span>
-                                <span>23-08-01</span>
+                                <span><%= comment.getNickname() %></span>
+                                <span><%= comment.getRdate() %></span>
                             </span>
-                            <textarea name="comment" readonly>댓글 샘플입니다.</textarea>
+                            <textarea name="comment" readonly><%= comment.getContent() %></textarea>
                             <div>
                                 <a href="#">삭제</a>
                                 <a href="#">수정</a>
                             </div>
                         </article>
+                        <% } %>
+                        
+                        <% if (comments.isEmpty()) { %>
                         <p class="empty">등록된 댓글이 없습니다.</p>
+                        <% } %>
                     </section>
 
                     <!-- 댓글 입력폼 -->
                     <section class="commentForm">
                         <h3>댓글 쓰기</h3>
-                        <form action="#">
-                            <textarea name="comment"></textarea>
+                        <form action="/Jboard/proc/commentProc.jsp" method="post">
+                        	<input type="hidden" name="parent" value="<%= no %>">
+                        	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
+                            <textarea name="content"></textarea>
                             <div>
                                 <a href="#" class="btnCancel">취소</a>
                                 <input type="submit" class="btnWrite" value="작성완료">

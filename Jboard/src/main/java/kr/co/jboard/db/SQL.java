@@ -32,7 +32,19 @@ public class SQL {
 											+ "`rdate`=NOW()";
 	public static final String SELECT_ARTICLES = "SELECT a.*, b.`nickname` FROM `Article` AS a"
 											+ " JOIN `User` AS b ON a.writer = b.uid"
+											+ " WHERE `parent`=0"
 											+ " ORDER BY `no` DESC"
 											+ " LIMIT ?, 10";
-	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article`";
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0";
+	public static final String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
+	public static final String INSERT_COMMENT = "INSERT INTO `article` SET "
+											+ "`parent`=?, "
+											+ "`content`=?, "
+											+ "`writer`=?, "
+											+ "`regip`=?, "
+											+ "`rdate`=NOW()";
+	public static final String UPDATE_ARTICLE_FOR_COMMENT = "UPDATE `Article` SET `comment` = `comment` + 1 WHERE `no`=?";
+	public static final String SELECT_COMMENTS = "SELECT a.*, b.`nickname` FROM `Article` AS a"
+											+ " JOIN `User` AS b ON a.writer = b.uid"
+											+ " WHERE `parent`=?";
 }
