@@ -13,6 +13,34 @@
 %>
 <script>
 	$(function(){
+		// 댓글 수정
+		$('.modi').click(function(e){
+			e.preventDefault();
+			
+			const txt = $(this).text();
+			
+			if (txt == '수정')
+			{
+				$(this).parent().prev().addClass('mod');
+				$(this).parent().prev().attr('readonly', false);
+				$(this).parent().prev().focus();
+				$(this).text('수정완료');
+				$(this).prev().show();
+			}
+			else
+			{
+				// 수정완료 클릭
+				// 수정 데이터 전송
+				$(this).closest('form').submit();
+				
+				// 수정모드 해제
+				$(this).parent().prev().removeClass('mod');
+				$(this).parent().prev().attr('readonly', true);
+				$(this).text('수정');
+				$(this).prev().hide();
+			}
+		});
+		
 		// 댓글 삭제
 		$('.del').click(function(){
 			const result = confirm('댓글을 삭제하시겠습니까?');
@@ -78,18 +106,20 @@
            <h3>댓글 목록</h3>
            <% for (ArticleDTO comment : comments) { %>
            <article class="comment">
-               <span>
-                   <span><%= comment.getNickname() %></span>
-                   <span><%= comment.getRdate() %></span>
-               </span>
-               <textarea name="comment" readonly><%= comment.getContent() %></textarea>
-               
-               <% if (sessUser.getUid().equals(comment.getWriter())) { %>
-               <div>
-                   <a href="/Jboard/proc/commentDeleteProc.jsp?no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" class="del">삭제</a>
-                   <a href="#" class="modi">수정</a> <!-- 추후에 AJAX 통해 구현 예정 -->
-               </div>
-               <% } %>
+               <form action="/Jboard/proc/commentUpdateProc.jsp?no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" method="post">
+	               	<span>
+	                   <span><%= comment.getNickname() %></span>
+	                   <span><%= comment.getRdate() %></span>
+	               </span>
+	               <textarea name="comment" readonly><%= comment.getContent() %></textarea>
+	               
+	               <% if (sessUser.getUid().equals(comment.getWriter())) { %>
+	               <div>
+	                   <a href="/Jboard/proc/commentDeleteProc.jsp?no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" class="del">삭제</a>
+	                   <a href="#" class="modi">수정</a>
+	               </div>
+	               <% } %>
+               </form>
            </article>
            <% } %>
            

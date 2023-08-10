@@ -250,4 +250,20 @@ public class ArticleDAO extends DBHelper {
 			e.printStackTrace();
 		}
 	}
+	
+	// 댓글 수정
+	public void updateComment(ArticleDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
+			psmt.setString(1, dto.getContent());
+			psmt.setInt(2, dto.getNo());
+			
+			psmt.executeUpdate();
+			
+			close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
