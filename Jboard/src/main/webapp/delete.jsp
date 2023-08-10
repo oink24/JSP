@@ -1,4 +1,4 @@
-<%@page import="kr.co.jboard.dao.ArticleDAO"%>
+<%@	page import="kr.co.jboard.dao.ArticleDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
