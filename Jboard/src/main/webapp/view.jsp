@@ -60,8 +60,10 @@
            </tr>
        </table>
        <div>
+       	   <% if (sessUser.getUid().equals(dto.getWriter())) { %>
            <a href="/Jboard/delete.jsp?no=<%= no %>" class="btnDelete">삭제</a>
            <a href="/Jboard/modify.jsp?no=<%= no %>" class="btnModify">수정</a>
+           <% } %>
            <a href="/Jboard/list.jsp" class="btnList">목록</a>
        </div>
 
