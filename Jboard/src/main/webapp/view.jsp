@@ -23,6 +23,12 @@
 				return false;
 		});
 		
+		// 댓글 작성 취소 버튼
+		$('.btnCancel').click(function(e){
+			e.preventDefault();
+			$('form > textarea[name=content]').val('');
+		});
+		
 		// 게시글 삭제
 		const btnDelete = document.getElementsByClassName('btnDelete')[0];
 		btnDelete.onclick = function(){
@@ -100,7 +106,7 @@
            	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
                <textarea name="content" class="content"></textarea>
                <div>
-                   <a href="/Jboard/proc/commentClearProc.jsp?no=<%= no %>" class="btnCancel">취소</a>
+                   <a href="#" class="btnCancel">취소</a>
                    <input type="submit" class="btnWrite" value="작성완료">
                </div>
            </form>
