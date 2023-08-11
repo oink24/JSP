@@ -1,7 +1,7 @@
 <%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("UTF-8");
 	String success = request.getParameter("success");
 	
 	// 현재 사용자 로그인 여부 확인

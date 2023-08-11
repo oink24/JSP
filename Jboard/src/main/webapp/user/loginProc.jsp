@@ -4,7 +4,7 @@
 <%
 // 전송데이터 수신
 	request.setCharacterEncoding("UTF-8");
-	String uid = request.getParameter("uid");
+	String uid  = request.getParameter("uid");
 	String pass = request.getParameter("pass");
 	
 	// 사용자 DB 조회

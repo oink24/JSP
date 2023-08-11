@@ -4,8 +4,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String content = request.getParameter("comment");
-	String no = request.getParameter("no");
-	String parent = request.getParameter("parent");
+	String no 	   = request.getParameter("no");
+	String parent  = request.getParameter("parent");
 	
 	ArticleDTO dto = new ArticleDTO();
 	dto.setContent(content);
