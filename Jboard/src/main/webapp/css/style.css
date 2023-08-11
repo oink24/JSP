@@ -301,7 +301,12 @@ main {
     border: 0;
     background: transparent;
 }
+.view .commentList textarea.mod {
+	border: 1px solid #bbb;
+	background: white;
+}
 .view .commentList div { text-align: right; }
+.view .commentList div > .can { display: none; }
 .view .commentList .empty {
     padding: 20px 0;
     text-align: center;

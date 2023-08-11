@@ -30,8 +30,11 @@
 			else
 			{
 				// 수정완료 클릭
-				// 수정 데이터 전송
-				$(this).closest('form').submit();
+				if (confirm('댓글을 수정하시겠습니까?'))
+				{
+					// 수정 데이터 전송
+					$(this).closest('form').submit();
+				}
 				
 				// 수정모드 해제
 				$(this).parent().prev().removeClass('mod');
@@ -116,6 +119,7 @@
 	               <% if (sessUser.getUid().equals(comment.getWriter())) { %>
 	               <div>
 	                   <a href="/Jboard/proc/commentDeleteProc.jsp?no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" class="del">삭제</a>
+	                   <a href="/Jboard/view.jsp?no=<%= no %>" class="can">취소</a> <!-- 댓글 수정시에만 나타남 -->
 	                   <a href="#" class="modi">수정</a>
 	               </div>
 	               <% } %>
