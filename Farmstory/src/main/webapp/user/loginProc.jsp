@@ -10,7 +10,9 @@
 	
 	if (user != null)
 	{
+		// 세션처리
 		session.setAttribute("sessUser", user);
+		
 		response.sendRedirect("/Farmstory");
 	}
 	else
