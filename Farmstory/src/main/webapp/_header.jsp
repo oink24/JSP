@@ -6,6 +6,7 @@
     <title>Farmstory::main</title>
     <link rel="stylesheet" href="/Farmstory/css/style.css">
     <link rel="stylesheet" href="/Farmstory/user/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 <body>
     <div id="container">
