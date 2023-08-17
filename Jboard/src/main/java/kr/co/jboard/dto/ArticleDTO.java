@@ -16,6 +16,12 @@ public class ArticleDTO {
 	
 	// 추가필드
 	private String nickname;
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	
 	public int getNo() {
 		return no;
@@ -91,12 +97,5 @@ public class ArticleDTO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
-	}
-	// 추가필드
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
 	}
 }

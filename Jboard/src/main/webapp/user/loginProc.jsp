@@ -2,7 +2,7 @@
 <%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%
-// 전송데이터 수신
+	// 전송데이터 수신
 	request.setCharacterEncoding("UTF-8");
 	String uid  = request.getParameter("uid");
 	String pass = request.getParameter("pass");

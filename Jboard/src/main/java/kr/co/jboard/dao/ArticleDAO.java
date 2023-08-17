@@ -221,6 +221,22 @@ public class ArticleDAO extends DBHelper {
 		return comments;
 	}
 	
+	// 댓글 수정
+	public void updateComment(ArticleDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
+			psmt.setString(1, dto.getContent());
+			psmt.setInt(2, dto.getNo());
+			
+			psmt.executeUpdate();
+			
+			close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// 댓글 삭제
 	public void deleteComment(String no) {
 		try {
@@ -246,22 +262,6 @@ public class ArticleDAO extends DBHelper {
 			
 			close();
 			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	// 댓글 수정
-	public void updateComment(ArticleDTO dto) {
-		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
-			psmt.setString(1, dto.getContent());
-			psmt.setInt(2, dto.getNo());
-			
-			psmt.executeUpdate();
-			
-			close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
