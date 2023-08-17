@@ -1,5 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String success = request.getParameter("success");
+	
+	if (sessUser != null)
+	{
+		response.sendRedirect("/Farmstory");
+		return; // 로그인페이지 강제로 이동하고 싶어도 이동 불가
+	}
+%>
+<script>
+if (<%= success %> == 100) // 로그인 실패
+	alert('로그인에 실패하였습니다. 다시 확인하세요.');
+</script>
 <div id="user"> <!-- main -->
     <section class="login">
          <form action="/Farmstory/user/loginProc.jsp" method="post">

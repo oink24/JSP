@@ -30,6 +30,7 @@
     background-color: #fdfdfd;
     border: 1px solid #bebebe;
 }
+.login .btnLogin:hover { cursor: pointer; }
 
 .login > div {
     width: 100%;
