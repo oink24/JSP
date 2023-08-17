@@ -3,8 +3,8 @@ package kr.co.jboard.db;
 public class SQL {
 	
 	// user
-	public static final String SELECT_TERMS = "SELECT * FROM `terms`";
-	public static final String INSERT_USER = "INSERT INTO `user` SET "
+	public static final String SELECT_TERMS = "SELECT * FROM `Terms`";
+	public static final String INSERT_USER = "INSERT INTO `User` SET "
 											+ "`uid`=?, "
 											+ "`pass`=SHA2(?, 256), "
 											+ "`name`=?, "
@@ -16,7 +16,7 @@ public class SQL {
 											+ "`addr2`=?, "
 											+ "`regip`=?, "
 											+ "`regDate`=NOW()";
-	public static final String SELECT_USER = "SELECT * FROM `user` WHERE `uid`=? AND `pass`=SHA2(?, 256)";
+	public static final String SELECT_USER = "SELECT * FROM `User` WHERE `uid`=? AND `pass`=SHA2(?, 256)";
 	
 	public static final String SELECT_COUNT_UID = "SELECT COUNT(*) FROM `User` WHERE `uid`=?";
 	public static final String SELECT_COUNT_NICKNAME = "SELECT COUNT(*) FROM `User` WHERE `nickname`=?";
@@ -24,7 +24,7 @@ public class SQL {
 	public static final String SELECT_COUNT_HP = "SELECT COUNT(*) FROM `User` WHERE `hp`=?";
 	
 	// Article
-	public static final String INSERT_ARTICLE = "INSERT INTO `article` SET "
+	public static final String INSERT_ARTICLE = "INSERT INTO `Article` SET "
 											+ "`title`=?, "
 											+ "`content`=?, "
 											+ "`writer`=?, "
@@ -41,7 +41,7 @@ public class SQL {
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 	
 	// comment
-	public static final String INSERT_COMMENT = "INSERT INTO `article` SET "
+	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "
 											+ "`parent`=?, "
 											+ "`content`=?, "
 											+ "`writer`=?, "
