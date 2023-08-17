@@ -9,8 +9,10 @@
 %>
 			<section id="board" class="write">
 				<h3>글 쓰기</h3>
-				<form action="#" method="post">
-					<input type="hidden" name="writer" readonly value="">
+				<form action="./proc/writeProc.jsp" method="post">
+					<input type="hidden" name="group" readonly value="<%= group %>">
+					<input type="hidden" name="cate" readonly value="<%= cate %>">
+					<input type="hidden" name="writer" readonly value="<%= sessUser.getUid() %>">
 					<table>
 					    <tr>
 					        <td>제목</td>

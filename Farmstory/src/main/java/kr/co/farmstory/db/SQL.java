@@ -22,4 +22,13 @@ public class SQL {
 	public static final String SELECT_COUNT_NICKNAME = "SELECT COUNT(*) FROM `User` WHERE `nickname`=?";
 	public static final String SELECT_COUNT_EMAIL = "SELECT COUNT(*) FROM `User` WHERE `email`=?";
 	public static final String SELECT_COUNT_HP = "SELECT COUNT(*) FROM `User` WHERE `hp`=?";
+	
+	// Article
+	public static final String INSERT_ARTICLE = "INSERT INTO `Article` SET "
+											+ "`category`=?, "
+											+ "`title`=?, "
+											+ "`content`=?, "
+											+ "`writer`=?, "
+											+ "`regip`=?, "
+											+ "`rdate`=NOW()";
 }
