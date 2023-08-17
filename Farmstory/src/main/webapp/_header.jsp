@@ -16,7 +16,7 @@
             <p>
                 <a href="/Farmstory/index.jsp">HOME |</a>
                 <a href="/Farmstory/user/login.jsp">로그인 |</a>
-                <a href="/Farmstory/user/register.jsp">회원가입 |</a>
+                <a href="/Farmstory/user/terms.jsp">회원가입 |</a>
                 <a href="/Farmstory/admin/">관리자 |</a>
                 <a href="#">고객센터</a>
             </p>
