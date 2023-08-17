@@ -521,3 +521,144 @@ input[type=number]::-webkit-outer-spin-button {
 #sub > .community > aside > .lnb > li:nth-child(3).on > a { background-image: url('../images/sub_cate5_lnb3_ov.png'); }
 #sub > .community > aside > .lnb > li:nth-child(4).on > a { background-image: url('../images/sub_cate5_lnb4_ov.png'); }
 #sub > .community > aside > .lnb > li:nth-child(5).on > a { background-image: url('../images/sub_cate5_lnb5_ov.png'); }
+
+/* 게시판 관련 CSS */
+/* 게시판-공통 */
+#board {
+    width: 720px;
+    margin: 60px auto;
+}
+#board table {
+    width: 100%;
+    border-top: 2px solid #111;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 6px;
+}
+#board th {
+    padding: 12px;
+    border-top: 1px solid #d1dee2;
+    border-bottom: 1px solid #d1dee2;
+    background: #e5ecef;
+    color: #383838;
+}
+#board td {
+    padding: 12px 6px;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+}
+#board td:nth-child(1) {
+    width: 100px;
+    background: #f5f8f9;
+    text-align: center;
+}
+
+#board table input {
+    width: 100%;
+    height: 24px;
+    border: 0;
+}
+#board table textarea {
+    width: 100%;
+    height: 280px;
+    resize: none;
+    border: 0;
+}
+
+#board .btnWrite  { padding: 7px; border: 1px solid #3b3c3f; background: #4b545e; color: #fff; }
+#board .btnCancel { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
+#board .btnDelete { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
+#board .btnModify { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
+#board .btnList   { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
+
+/* 글 목록 */
+.list { position: relative; }
+
+.list article table td:nth-child(1) {width:  50px; text-align: center; background: #fff;}
+.list article table td:nth-child(2) {width:  auto; text-align: left;}
+.list article table td:nth-child(3) {width: 100px; text-align: center;}
+.list article table td:nth-child(4) {width: 100px; text-align: center;}
+.list article table td:nth-child(5) {width:  50px; text-align: center;}
+
+.list .paging {
+    padding: 20px;
+    text-align: center;
+}
+.list .paging > a {
+    padding: 8px;
+    background: #f2f2f2;
+    border: 1px solid #d7d7d7;
+}
+.list .paging > .current {
+    border: 1px solid #6d6d6d;
+    background: #888;
+    color: #fff;
+}
+
+.list .btnWrite {
+    position: absolute;
+    bottom: 14px;
+    right: 0;
+}
+
+/* 글 보기 */
+.view div {
+    padding: 16px 0;
+    text-align: right;
+}
+
+.view section {
+    padding: 20px;
+    border: 1px solid #e3e3e3;
+    background: #f9f9f9;
+    margin-bottom: 16px;
+}
+.view section > h3 {
+    font-weight: bold;
+}
+
+.view .commentList > article {
+    border-top: 1px dotted #999;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.view .commentList textarea {
+    width: 100%;
+    height: 60px;
+    padding: 6px;
+    box-sizing: border-box;
+    resize: none;
+    border: 0;
+    background: transparent;
+}
+.view .commentList textarea.mod {
+	border: 1px solid #bbb;
+	background: white;
+}
+.view .commentList div { text-align: right; }
+.view .commentList div > .can { display: none; }
+.view .commentList .empty {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.view .commentForm textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #e4eaec;
+    margin: 10px 0;
+    resize: none;
+}
+.view .commentForm div { text-align: right; }
+
+/* 글 쓰기 */
+.write div {
+    margin-top: 10px;
+    text-align: right;
+}
+
+/* 글 수정 */
+.modify div {
+    margin-top: 10px;
+    text-align: right;
+}
