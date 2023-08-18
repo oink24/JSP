@@ -1,3 +1,4 @@
+<%@ page import="java.util.List"%>
 <%@ page import="kr.co.farmstory.dto.ArticleDTO"%>
 <%@ page import="kr.co.farmstory.dao.ArticleDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
@@ -17,12 +18,19 @@
 	
 	// 데이터베이스 조회
 	ArticleDAO dao = new ArticleDAO();
-	ArticleDTO dto = dao.selectArticle(no);
+	ArticleDTO dto = dao.selectArticle(no); // 해당 게시글 조회
+	List<ArticleDTO> comments = dao.selectComments(no, cate); // 해당 게시글의 댓글 조회
 	
 	pageContext.include("./_aside"+group+".jsp");
 %>
 <script>
 	$(function(){
+		// 댓글 작성 시 취소 버튼
+		$('.btnCancel').click(function(e){
+			e.preventDefault();
+			$('form > textarea[name=content]').val('');
+		});
+		
 		// 게시글 삭제
 		$('.btnDelete').click(function(){
 			if (confirm('게시글을 삭제하시겠습니까?'))
@@ -67,13 +75,14 @@
 		       <!-- 댓글 리스트 -->
 		       <section class="commentList">
 		           <h3>댓글 목록</h3>
+		           <% for (ArticleDTO comment : comments) { %>
 		           <article class="comment">
 		               <form action="#" method="post">
 			               	<span>
-			                   <span>nick</span>
-			                   <span>23-08-17</span>
+			                   <span><%= comment.getNickname() %> | </span>
+			                   <span><%= comment.getRdate() %></span>
 			               </span>
-			               <textarea name="comment" readonly></textarea>
+			               <textarea name="comment" readonly><%= comment.getContent() %></textarea>
 			               
 			               <div>
 			                   <a href="#" class="del">삭제</a>
@@ -82,16 +91,21 @@
 			               </div>
 		               </form>
 		           </article>
+		           <% } %>
 		           
+		           <% if (comments.isEmpty()) { %>
 		           <p class="empty">등록된 댓글이 없습니다.</p>
+		           <% } %>
 		       </section>
 		
 		       <!-- 댓글 입력폼 -->
 		       <section class="commentForm">
 		           <h3>댓글 쓰기</h3>
-		           <form action="#" method="post">
-		           	<input type="hidden" name="parent" value="">
-		           	<input type="hidden" name="writer" value="">
+		           <form action="/Farmstory/board/proc/commentProc.jsp" method="post">
+		           	<input type="hidden" name="group" value="<%= group %>">
+		           	<input type="hidden" name="cate" value="<%= cate %>">
+		           	<input type="hidden" name="parent" value="<%= no %>">
+		           	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
 		               <textarea name="content" class="content"></textarea>
 		               <div>
 		                   <a href="#" class="btnCancel">취소</a>
