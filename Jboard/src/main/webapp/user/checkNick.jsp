@@ -3,7 +3,6 @@
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	
 	String nickname = request.getParameter("nickname");
 	
 	int result = UserDAO.getInstance().selectCountNickname(nickname);

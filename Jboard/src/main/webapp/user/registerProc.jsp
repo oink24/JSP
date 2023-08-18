@@ -18,19 +18,19 @@
 	String addr2 	= request.getParameter("addr2");
 	String regip 	= request.getRemoteAddr();
 	
-	UserDTO vo = new UserDTO();
-	vo.setUid(uid);
-	vo.setPass(pass1);
-	vo.setName(name);
-	vo.setNickname(nickname);
-	vo.setEmail(email);
-	vo.setHp(hp);
-	vo.setZip(zip);
-	vo.setAddr1(addr1);
-	vo.setAddr2(addr2);
-	vo.setRegip(regip);
+	UserDTO dto = new UserDTO();
+	dto.setUid(uid);
+	dto.setPass(pass1);
+	dto.setName(name);
+	dto.setNickname(nickname);
+	dto.setEmail(email);
+	dto.setHp(hp);
+	dto.setZip(zip);
+	dto.setAddr1(addr1);
+	dto.setAddr2(addr2);
+	dto.setRegip(regip);
 	
-	UserDAO.getInstance().insertUser(vo);
+	UserDAO.getInstance().insertUser(dto);
 	
 	response.sendRedirect("/Jboard/user/login.jsp");
 %>

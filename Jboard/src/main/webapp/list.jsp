@@ -1,7 +1,6 @@
 <%@ page import="kr.co.jboard.dto.ArticleDTO"%>
 <%@ page import="java.util.List"%>
 <%@ page import="kr.co.jboard.dao.ArticleDAO"%>
-<%@ page import="kr.co.jboard.dto.UserDTO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
 <%
@@ -12,14 +11,14 @@
 	ArticleDAO dao = new ArticleDAO();
 	
 	// 페이지 관련 변수
-	int currentPage = 1; // 현재 페이지
-	int start = 0; // 현재 페이지 게시물 LIMIT 시작번호
-	int total = 0; // 전체 게시글 갯수
-	int lastPageNum = 0; // 페이지번호 계산 (총 페이지 / 10)
+	int currentPage = 1;	  // 현재 페이지
+	int start = 0;			  // 현재 페이지 게시물 LIMIT 시작번호
+	int total = 0;			  // 전체 게시글 갯수
+	int lastPageNum = 0;	  // 페이지번호 계산 (총 페이지 / 10)
 	int pageGroupCurrent = 1; // 페이지 그룹 계산
-	int pageGroupStart = 1; // 각 페이지그룹의 스타트 페이지 번호
-	int pageGroupEnd = 0; // 페이지그룹 내 마지막 페이지번호
-	int pageStartNum = 0; // 페이지 게시글 시작번호
+	int pageGroupStart = 1;   // 각 페이지그룹의 스타트 페이지 번호
+	int pageGroupEnd = 0; 	  // 페이지그룹 내 마지막 페이지번호
+	int pageStartNum = 0;	  // 페이지 게시글 시작번호
 	
 	// 현재 페이지 계산
 	if (pg != null)
@@ -39,8 +38,8 @@
 	
 	// 페이지 그룹 계산
 	pageGroupCurrent = (int) Math.ceil(currentPage / 10.0);
-	pageGroupStart = (pageGroupCurrent - 1) * 10 + 1;
-	pageGroupEnd = pageGroupCurrent * 10;
+	pageGroupStart	 = (pageGroupCurrent - 1) * 10 + 1;
+	pageGroupEnd	 = pageGroupCurrent * 10;
 	
 	if (pageGroupEnd > lastPageNum)
 		pageGroupEnd = lastPageNum;

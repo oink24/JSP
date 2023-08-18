@@ -102,15 +102,15 @@
 		       <section class="commentForm">
 		           <h3>댓글 쓰기</h3>
 		           <form action="/Farmstory/board/proc/commentProc.jsp" method="post">
-		           	<input type="hidden" name="group" value="<%= group %>">
-		           	<input type="hidden" name="cate" value="<%= cate %>">
-		           	<input type="hidden" name="parent" value="<%= no %>">
-		           	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
-		               <textarea name="content" class="content"></textarea>
-		               <div>
-		                   <a href="#" class="btnCancel">취소</a>
-		                   <input type="submit" class="btnWrite" value="작성완료">
-		               </div>
+						<input type="hidden" name="group" value="<%= group %>">
+						<input type="hidden" name="cate" value="<%= cate %>">
+						<input type="hidden" name="parent" value="<%= no %>">
+						<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
+						<textarea name="content" class="content"></textarea>
+						<div>
+						    <a href="#" class="btnCancel">취소</a>
+						    <input type="submit" class="btnWrite" value="작성완료">
+						</div>
 		           </form>
 		       </section>
 		    </section>

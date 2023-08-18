@@ -3,7 +3,6 @@
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-
 	String uid = request.getParameter("uid");
 	
 	// uid는 PK이므로 결과값 항상 1(이미존재) or 0(존재X)

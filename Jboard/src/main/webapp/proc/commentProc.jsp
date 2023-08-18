@@ -4,8 +4,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String parent  = request.getParameter("parent");
-	String content = request.getParameter("content");
 	String writer  = request.getParameter("writer");
+	String content = request.getParameter("content");
 	String regip   = request.getRemoteAddr();
 	
 	ArticleDTO dto = new ArticleDTO();

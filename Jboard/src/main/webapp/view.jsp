@@ -13,6 +13,12 @@
 %>
 <script>
 	$(function(){
+		// 댓글 작성 시 취소 버튼
+		$('.btnCancel').click(function(e){
+			e.preventDefault();
+			$('form > textarea[name=content]').val('');
+		});
+		
 		// 댓글 수정
 		$('.modi').click(function(e){
 			e.preventDefault();
@@ -52,12 +58,6 @@
 				return true;
 			else
 				return false;
-		});
-		
-		// 댓글 작성 취소 버튼
-		$('.btnCancel').click(function(e){
-			e.preventDefault();
-			$('form > textarea[name=content]').val('');
 		});
 		
 		// 게시글 삭제
@@ -136,13 +136,13 @@
        <section class="commentForm">
            <h3>댓글 쓰기</h3>
            <form action="/Jboard/proc/commentProc.jsp" method="post">
-           	<input type="hidden" name="parent" value="<%= no %>">
-           	<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
-               <textarea name="content" class="content"></textarea>
-               <div>
-                   <a href="#" class="btnCancel">취소</a>
-                   <input type="submit" class="btnWrite" value="작성완료">
-               </div>
+				<input type="hidden" name="parent" value="<%= no %>">
+				<input type="hidden" name="writer" value="<%= sessUser.getUid() %>">
+				<textarea name="content" class="content"></textarea>
+				<div>
+				    <a href="#" class="btnCancel">취소</a>
+				    <input type="submit" class="btnWrite" value="작성완료">
+				</div>
            </form>
        </section>
     </section>

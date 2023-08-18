@@ -8,7 +8,7 @@
 <%@ page import="javax.naming.Context"%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-//전송 데이터 수신
+	//전송 데이터 수신
 	request.setCharacterEncoding("UTF-8");
 	String title 	= request.getParameter("title");
 	String content 	= request.getParameter("content");

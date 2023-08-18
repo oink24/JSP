@@ -3,7 +3,6 @@
 <%@ page contentType="application/json;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-
 	String hp = request.getParameter("hp");
 	
 	int result = UserDAO.getInstance().selectCountHp(hp);
