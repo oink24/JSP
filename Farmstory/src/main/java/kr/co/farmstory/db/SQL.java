@@ -37,5 +37,5 @@ public class SQL {
 											+ " WHERE `parent`=0 AND `category`=?"
 											+ " ORDER BY `no` DESC"
 											+ " LIMIT ?, 10";
-	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `cate`=?";
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `category`=?";
 }
