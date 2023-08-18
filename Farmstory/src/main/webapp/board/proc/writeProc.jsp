@@ -3,13 +3,13 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String group   = request.getParameter("group");
-	String cate    = request.getParameter("cate");
-	String writer  = request.getParameter("writer");
-	String title   = request.getParameter("title");
-	String content = request.getParameter("content");
-	String file    = request.getParameter("file");
-	String regip   = request.getRemoteAddr();
+	String group   	= request.getParameter("group");
+	String cate    	= request.getParameter("cate");
+	String title 	= request.getParameter("title");
+	String content 	= request.getParameter("content");
+	String file 	= request.getParameter("file");
+	String writer 	= request.getParameter("writer");
+	String regip   	= request.getRemoteAddr();
 	
 	ArticleDTO dto = new ArticleDTO();
 	dto.setCategory(cate);
