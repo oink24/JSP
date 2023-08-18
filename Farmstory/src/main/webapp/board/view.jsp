@@ -11,7 +11,7 @@
 	// 로그인 여부 확인
 	if (sessUser == null)
 	{
-		response.sendRedirect("/Farmstory/board/list.jsp?success=101&group="+group+"&cate="+cate);
+		response.sendRedirect("/Farmstory/user/login.jsp?success=101&target=view&group="+group+"&cate="+cate+"&no="+no);
 		return;
 	}
 	

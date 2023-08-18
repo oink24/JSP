@@ -29,7 +29,6 @@
     	else if (success == 101)
     	{
     		alert('로그인을 먼저 해야합니다.');
-    		location.href = "/Farmstory/user/login.jsp";
     	}
     	
     	$(function(){
