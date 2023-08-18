@@ -41,6 +41,10 @@
 					// 수정 데이터 전송
 					$(this).closest('form').submit();
 				}
+				else
+				{
+					$(this).parent().prev().val(comment);
+				}
 				
 				// 수정모드 해제
 				$(this).parent().prev().removeClass('mod');
