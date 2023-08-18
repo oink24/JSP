@@ -29,7 +29,7 @@
 	start = (currentPage - 1) * 10;
 	
 	// 전체 게시글 갯수 조회
-	total = dao.selectCountTotal();
+	total = dao.selectCountTotal(cate);
 	
 	// 페이지 번호 계산
 	if (total % 10 == 0)
@@ -49,7 +49,7 @@
 	pageStartNum = total - start;
 	
 	// 현재 페이지 네비게이션 내 게시글 조회
-	List<ArticleDTO> articles = dao.selectArticles(start);
+	List<ArticleDTO> articles = dao.selectArticles(cate, start);
 	
 	pageContext.include("./_aside"+group+".jsp");
 %>
