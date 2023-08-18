@@ -31,4 +31,11 @@ public class SQL {
 											+ "`writer`=?, "
 											+ "`regip`=?, "
 											+ "`rdate`=NOW()";
+	public static final String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
+	public static final String SELECT_ARTICLES = "SELECT a.*, b.`nickname` FROM `Article` AS a"
+											+ " JOIN `User` AS b ON a.writer = b.uid"
+											+ " WHERE `parent`=0"
+											+ " ORDER BY `no` DESC"
+											+ " LIMIT ?, 10";
+	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0";
 }

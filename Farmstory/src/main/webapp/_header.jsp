@@ -3,6 +3,9 @@
 <%
 	// 현재 사용자 로그인 여부 확인
 	UserDTO sessUser = (UserDTO) session.getAttribute("sessUser");
+
+	// 로그인 관련 파라미터값
+	String success = request.getParameter("success");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +15,18 @@
     <link rel="stylesheet" href="/Farmstory/css/style.css">
     <link rel="stylesheet" href="/Farmstory/user/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+    	const success = <%= success %>;
+    	if (success == 100)
+   		{
+    		alert('로그인에 실패하였습니다. 다시 확인하세요.');
+   		}
+    	else if (success == 101)
+    	{
+    		alert('로그인을 먼저 해야합니다.');
+    		location.href = "/Farmstory/user/login.jsp";
+    	}
+    </script>
 </head>
 <body>
     <div id="container">
