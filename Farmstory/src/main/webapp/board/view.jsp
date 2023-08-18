@@ -46,9 +46,10 @@
 		               </td>
 		           </tr>
 		       </table>
-		       <div>
-		           <a href="#" class="btnDelete">삭제</a>
-		           <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>" class="btnModify">수정</a>
+		       <div><% if (sessUser.getUid().equals(dto.getWriter())) { %>
+		           <a href="./delete.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnDelete">삭제</a>
+		           <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnModify">수정</a>
+		           <% } %>
 		           <a href="./list.jsp?group=<%= group %>&cate=<%= cate %>" class="btnList">목록</a>
 		       </div>
 		
