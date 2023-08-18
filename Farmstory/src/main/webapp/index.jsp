@@ -147,7 +147,36 @@
                 예 금 주 (주)팜스토리
             </p>
         </div>
-        <div></div>
+        <div>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">공지사항</a></li>
+                    <li><a href="#tabs-2">1:1 고객문의</a></li>
+                    <li><a href="#tabs-3">자주묻는 질문</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <ul class="txt">
+                        <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                        <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                        <li><a href="#">· 홈페이지 오픈 기념 이벤트를 진행합니다.</a></li>
+                    </ul>
+                </div>
+                <div id="tabs-2">
+                    <ul class="txt">
+                        <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                        <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                        <li><a href="#">· 홈페이지 이용 관련 불편사항을 들려주세요.</a></li>
+                    </ul>
+                </div>
+                <div id="tabs-3">
+                    <ul class="txt">
+                        <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
+                        <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
+                        <li><a href="#">· 홈페이지를 오픈하였습니다.</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <%@ include file="./_footer.jsp" %>

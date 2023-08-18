@@ -12,9 +12,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Farmstory::main</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" href="/Farmstory/css/style.css">
     <link rel="stylesheet" href="/Farmstory/user/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"/>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script>
     	const success = <%= success %>;
     	if (success == 100)
@@ -26,6 +31,17 @@
     		alert('로그인을 먼저 해야합니다.');
     		location.href = "/Farmstory/user/login.jsp";
     	}
+    	
+    	$(function(){
+    		$('.slider > ul').bxSlider({
+                slideWidth: 980,
+                pager: false,
+                controls: false,
+                auto: true
+            });
+    		
+    		$('#tabs').tabs();
+    	});
     </script>
 </head>
 <body>
