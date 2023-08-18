@@ -21,6 +21,17 @@
 	
 	pageContext.include("./_aside"+group+".jsp");
 %>
+<script>
+	$(function(){
+		// 게시글 삭제
+		$('.btnDelete').click(function(){
+			if (confirm('게시글을 삭제하시겠습니까?'))
+				return true;
+			else
+				return false;
+		});
+	});
+</script>
 		    <section id="board" class="view">
 		       <h3>글 보기</h3>
 		       <table>

@@ -139,8 +139,21 @@ public class ArticleDAO extends DBHelper {
 		}
 	}
 	
-	public void deleteArticle(String no) {
-		
+	public void deleteArticle(String no, String cate) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
+			psmt.setString(1, no);
+			psmt.setString(2, no);
+			psmt.setString(3, cate);
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	// 댓글 관련 CRUD

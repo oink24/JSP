@@ -39,4 +39,5 @@ public class SQL {
 											+ " LIMIT ?, 10";
 	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `category`=?";
 	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?, `content`=? WHERE `no`=? AND `category`=?";
+	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=? AND `category`=?";
 }
