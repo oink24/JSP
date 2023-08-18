@@ -56,7 +56,7 @@ CREATE TABLE `File`(
 );
 
 # 상품테이블
-farmstoryCREATE TABLE `Product` (
+CREATE TABLE `Product` (
 	`pno`			INT AUTO_INCREMENT PRIMARY KEY,
 	`category`	TINYINT NOT NULL,
 	`pName`		VARCHAR(100) NOT NULL,
