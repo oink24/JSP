@@ -110,7 +110,7 @@
 		           </tr>
 		       </table>
 		       <div><% if (sessUser.getUid().equals(dto.getWriter())) { %>
-		           <a href="./delete.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnDelete">삭제</a>
+		           <a href="./proc/deleteProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnDelete">삭제</a>
 		           <a href="./modify.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="btnModify">수정</a>
 		           <% } %>
 		           <a href="./list.jsp?group=<%= group %>&cate=<%= cate %>" class="btnList">목록</a>
@@ -121,7 +121,7 @@
 		           <h3>댓글 목록</h3>
 		           <% for (ArticleDTO comment : comments) { %>
 		           <article class="comment">
-		               <form action="/Farmstory/board/proc/commentUpdateProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" method="post">
+		               <form action="/Farmstory/board/proc/commentModifyProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" method="post">
 			               	<span>
 			                   <span><%= comment.getNickname() %> | </span>
 			                   <span><%= comment.getRdate() %></span>
@@ -147,7 +147,7 @@
 		       <!-- 댓글 입력폼 -->
 		       <section class="commentForm">
 		           <h3>댓글 쓰기</h3>
-		           <form action="/Farmstory/board/proc/commentProc.jsp" method="post">
+		           <form action="/Farmstory/board/proc/commentInsertProc.jsp" method="post">
 						<input type="hidden" name="group" value="<%= group %>">
 						<input type="hidden" name="cate" value="<%= cate %>">
 						<input type="hidden" name="parent" value="<%= no %>">

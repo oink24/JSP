@@ -12,7 +12,7 @@
 <main>
     <section id="board" class="modify">
        <h3>글 수정</h3>
-       <form action="/Jboard/proc/updateProc.jsp" method="post">
+       <form action="/Jboard/proc/modifyProc.jsp" method="post">
            <input type="hidden" name="no" value="<%= no %>">
            <table>
                <tr>

@@ -15,7 +15,7 @@
 %>
 			<section id="board" class="modify">
 			   <h3>글 수정</h3>
-			   <form action="/Farmstory/board/proc/updateProc.jsp" method="post">
+			   <form action="/Farmstory/board/proc/modifyProc.jsp" method="post">
 			   		<input type="hidden" name="group" value="<%= group %>">
 			   		<input type="hidden" name="cate" value="<%= cate %>">
 					<input type="hidden" name="no" value="<%= no %>">
