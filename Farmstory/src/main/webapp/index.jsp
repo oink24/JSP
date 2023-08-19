@@ -32,6 +32,19 @@
         <a href="#"><img src="./images/main_banner_sub2_tit.png" alt="나도 요리사"></a>
     </div> 
     <div class="latest">
+    	<article>
+            <a href="./board/list.jsp?group=Croptalk&cate=story"><img src="./images/main_latest3_tit.png" alt="농작물이야기"></a>
+            <img src="./images/main_latest3_img.jpg" alt="이미지">
+            <table border="0">
+            	<% for (ArticleDTO latest : latests3) { %>
+                <tr>
+                    <td>></td>
+                    <td><a href="./board/view.jsp?group=Croptalk&cate=story&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
+                    <td><%= latest.getRdate() %></td>
+                </tr>
+                <% } %>
+            </table>
+        </article>
         <article>
             <a href="./board/list.jsp?group=Croptalk&cate=grow"><img src="./images/main_latest1_tit.png" alt="텃밭가꾸기"></a>
             <img src="./images/main_latest1_img.jpg" alt="이미지">
@@ -53,19 +66,6 @@
                 <tr>
                     <td>></td>
                     <td><a href="./board/view.jsp?group=Croptalk&cate=school&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
-                    <td><%= latest.getRdate() %></td>
-                </tr>
-                <% } %>
-            </table>
-        </article>
-        <article>
-            <a href="./board/list.jsp?group=Croptalk&cate=story"><img src="./images/main_latest3_tit.png" alt="농작물이야기"></a>
-            <img src="./images/main_latest3_img.jpg" alt="이미지">
-            <table border="0">
-            	<% for (ArticleDTO latest : latests3) { %>
-                <tr>
-                    <td>></td>
-                    <td><a href="./board/view.jsp?group=Croptalk&cate=story&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
                     <td><%= latest.getRdate() %></td>
                 </tr>
                 <% } %>
