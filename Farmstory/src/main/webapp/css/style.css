@@ -195,7 +195,8 @@ main > .latest > article > table td {
 main > .latest > article > table td > a { color: #6a6a6a; }
 main > .latest > article > table td:nth-child(2) {
     display: block;
-    width: 142px;
+    width: 133px;
+    margin-left: 3px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
