@@ -10,7 +10,7 @@ $(function(){
 		// 아이디 입력값 검사
 		if (!uid.match(reUid))
 		{
-			$('.resultId').css('color', 'red').text('아이디는 영소문자로 시작하여 4자리 이상, 숫자와의 조합만 가능합니다.');
+			$('.resultId').css('color', 'red').text('아이디는 영소문자로 시작하여 5자리 이상, 숫자와의 조합만 가능합니다.');
 			isUidOk = false;
 			return;
 		}
