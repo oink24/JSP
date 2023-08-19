@@ -240,6 +240,7 @@ main {
 #board .btnDelete { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
 #board .btnModify { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
 #board .btnList   { padding: 8px; border: 1px solid #bebebe; background: #fdfdfd; color: #111; }
+#board .btnWrite:hover { cursor: pointer; text-decoration: underline #fdfdfd; }
 
 /* 글 목록 */
 .list { position: relative; }
