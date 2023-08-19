@@ -139,13 +139,12 @@ public class ArticleDAO extends DBHelper {
 		}
 	}
 	
-	public void deleteArticle(String no, String cate) {
+	public void deleteArticle(String no) {
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
 			psmt.setString(1, no);
 			psmt.setString(2, no);
-			psmt.setString(3, cate);
 			
 			psmt.executeUpdate();
 			
@@ -162,10 +161,9 @@ public class ArticleDAO extends DBHelper {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
 			psmt.setInt(1, dto.getParent());
-			psmt.setString(2, dto.getCategory());
-			psmt.setString(3, dto.getContent());
-			psmt.setString(4, dto.getWriter());
-			psmt.setString(5, dto.getRegip());
+			psmt.setString(2, dto.getContent());
+			psmt.setString(3, dto.getWriter());
+			psmt.setString(4, dto.getRegip());
 			
 			psmt.executeUpdate();
 			
@@ -175,12 +173,11 @@ public class ArticleDAO extends DBHelper {
 			e.printStackTrace();
 		}
 	}
-	public void updateArticleForCommentPlus(String no, String cate) {
+	public void updateArticleForCommentPlus(String no) {
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_PLUS);
 			psmt.setString(1, no);
-			psmt.setString(2, cate);
 			
 			psmt.executeUpdate();
 			
@@ -191,13 +188,12 @@ public class ArticleDAO extends DBHelper {
 		}
 	}
 	
-	public List<ArticleDTO> selectComments(String parent, String cate) {
+	public List<ArticleDTO> selectComments(String parent) {
 		List<ArticleDTO> comments = new ArrayList<>();
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.SELECT_COMMENTS);
 			psmt.setString(1, parent);
-			psmt.setString(2, cate);
 			
 			rs = psmt.executeQuery();
 			

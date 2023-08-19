@@ -19,7 +19,7 @@
 	// 데이터베이스 조회
 	ArticleDAO dao = new ArticleDAO();
 	ArticleDTO dto = dao.selectArticle(no); // 해당 게시글 조회
-	List<ArticleDTO> comments = dao.selectComments(no, cate); // 해당 게시글의 댓글 조회
+	List<ArticleDTO> comments = dao.selectComments(no); // 해당 게시글의 댓글 조회
 	
 	pageContext.include("./_aside"+group+".jsp");
 %>

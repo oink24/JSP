@@ -39,20 +39,19 @@ public class SQL {
 											+ "LIMIT ?, 10";
 	public static final String SELECT_COUNT_TOTAL = "SELECT COUNT(*) FROM `Article` WHERE `parent`=0 AND `category`=?";
 	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?, `content`=? WHERE `no`=? AND `category`=?";
-	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=? AND `category`=?";
+	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 	
 	// comment
 	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "
 											+ "`parent`=?, "
-											+ "`category`=?, "
 											+ "`content`=?, "
 											+ "`writer`=?, "
 											+ "`regip`=?, "
 											+ "`rdate`=NOW()";
-	public static final String UPDATE_ARTICLE_FOR_COMMENT_PLUS = "UPDATE `Article` SET `comment` = `comment` + 1 WHERE `no`=? AND `category`=?";
+	public static final String UPDATE_ARTICLE_FOR_COMMENT_PLUS = "UPDATE `Article` SET `comment` = `comment` + 1 WHERE `no`=?";
 	public static final String SELECT_COMMENTS = "SELECT a.*, b.`nickname` FROM `Article` AS a "
 											+ "JOIN `User` AS b ON a.writer = b.uid "
-											+ "WHERE `parent`=? AND `category`=?";
+											+ "WHERE `parent`=?";
 	public static final String UPDATE_COMMENT = "UPDATE `Article` SET `content`=? WHERE `no`=?";
 	public static final String DELETE_COMMENT = "DELETE FROM `Article` WHERE `no`=?";
 	public static final String UPDATE_ARTICLE_FOR_COMMENT_MINUS = "UPDATE `Article` SET `comment` = `comment` - 1 WHERE `no`=?";

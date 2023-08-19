@@ -11,7 +11,6 @@
 	String regip   = request.getRemoteAddr();
 	
 	ArticleDTO dto = new ArticleDTO();
-	dto.setCategory(cate);
 	dto.setParent(parent);
 	dto.setContent(content);
 	dto.setWriter(writer);
@@ -19,7 +18,7 @@
 	
 	ArticleDAO dao = new ArticleDAO();
 	dao.insertComment(dto); // 댓글 입력
-	dao.updateArticleForCommentPlus(parent, cate); // 댓글 카운트 수정 (+)
+	dao.updateArticleForCommentPlus(parent); // 댓글 카운트 수정 (+)
 	
 	response.sendRedirect("/Farmstory/board/view.jsp?group="+group+"&cate="+cate+"&no="+parent);
 %>
