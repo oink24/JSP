@@ -231,11 +231,47 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	public void updateComment(ArticleDTO dto) {
-		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_COMMENT);
+			psmt.setString(1, dto.getContent());
+			psmt.setInt(2, dto.getNo());
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void deleteComment(String no) {
-		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
+			psmt.setString(1, no);
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
-	public void updateArticleForCommentMinus(String no) {}
+	public void updateArticleForCommentMinus(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_MINUS);
+			psmt.setString(1, no);
+			
+			psmt.executeUpdate();
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -31,6 +31,50 @@
 			$('form > textarea[name=content]').val('');
 		});
 		
+		// 댓글 수정
+		$('.modi').click(function(e){
+			e.preventDefault();
+			
+			const txt = $(this).text();
+			
+			if (txt == '수정')
+			{
+				$(this).parent().prev().addClass('mod');
+				$(this).parent().prev().attr('readonly', false);
+				$(this).parent().prev().focus();
+				$(this).text('수정완료');
+				$(this).prev().show();
+			}
+			else
+			{
+				// 수정완료 클릭
+				if (confirm('댓글을 수정하시겠습니까?'))
+				{
+					// 수정 데이터 전송
+					$(this).closest('form').submit();
+				}
+				else
+				{
+					$(this).parent().prev().val(comment);
+				}
+				
+				// 수정모드 해제
+				$(this).parent().prev().removeClass('mod');
+				$(this).parent().prev().attr('readonly', true);
+				$(this).text('수정');
+				$(this).prev().hide();
+			}
+		});
+		
+		
+		// 댓글 삭제
+		$('.del').click(function(e){
+			if (confirm('댓글을 삭제하시겠습니까?'))
+				return true;
+			else
+				return false;
+		});
+		
 		// 게시글 삭제
 		$('.btnDelete').click(function(){
 			if (confirm('게시글을 삭제하시겠습니까?'))
@@ -77,18 +121,20 @@
 		           <h3>댓글 목록</h3>
 		           <% for (ArticleDTO comment : comments) { %>
 		           <article class="comment">
-		               <form action="#" method="post">
+		               <form action="/Farmstory/board/proc/commentUpdateProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" method="post">
 			               	<span>
 			                   <span><%= comment.getNickname() %> | </span>
 			                   <span><%= comment.getRdate() %></span>
 			               </span>
 			               <textarea name="comment" readonly><%= comment.getContent() %></textarea>
 			               
+			               <% if (sessUser.getUid().equals(comment.getWriter())) { %>
 			               <div>
-			                   <a href="#" class="del">삭제</a>
-			                   <a href="#" class="can">취소</a> <!-- 댓글 수정시에만 나타남 -->
+			                   <a href="/Farmstory/board/proc/commentDeleteProc.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= comment.getNo() %>&parent=<%= comment.getParent() %>" class="del">삭제</a>
+			                   <a href="/Farmstory/board/view.jsp?group=<%= group %>&cate=<%= cate %>&no=<%= no %>" class="can">취소</a> <!-- 댓글 수정시에만 나타남 -->
 			                   <a href="#" class="modi">수정</a>
 			               </div>
+			               <% } %>
 		               </form>
 		           </article>
 		           <% } %>
