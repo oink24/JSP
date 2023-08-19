@@ -51,7 +51,7 @@ public class SQL {
 	public static final String SELECT_COMMENTS = "SELECT a.*, b.`nickname` FROM `Article` AS a "
 											+ "JOIN `User` AS b ON a.writer = b.uid "
 											+ "WHERE `parent`=?";
+	public static final String UPDATE_COMMENT = "UPDATE `Article` SET `content`=? WHERE `no`=?";
 	public static final String DELETE_COMMENT = "DELETE FROM `Article` WHERE `no`=?";
 	public static final String UPDATE_ARTICLE_FOR_COMMENT_MINUS = "UPDATE `Article` SET `comment` = `comment` - 1 WHERE `no`=?";
-	public static final String UPDATE_COMMENT = "UPDATE `Article` SET `content`=? WHERE `no`=?";
 }
