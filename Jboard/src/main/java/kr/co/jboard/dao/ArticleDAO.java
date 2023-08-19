@@ -45,7 +45,10 @@ public class ArticleDAO extends DBHelper {
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
 				dto.setFile(rs.getInt("file"));
-				dto.setHit(rs.getInt("hit"));
+				int hit = rs.getInt("hit");
+				hit++;
+				dto.setHit(hit);
+				updateHit(hit, Integer.parseInt(no));
 				dto.setWriter(rs.getString("writer"));
 				dto.setRegip(rs.getString("regip"));
 				dto.setRdate(rs.getString("rdate"));
@@ -131,6 +134,21 @@ public class ArticleDAO extends DBHelper {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public int updateHit(int hit, int no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_HIT);
+			psmt.setInt(1, hit);
+			psmt.setInt(2, no);
+			
+			return psmt.executeUpdate();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1; // 데이터베이스 오류
 	}
 	
 	public void deleteArticle(String no) {

@@ -273,6 +273,7 @@ main {
 }
 
 /* 글 보기 */
+.view > h3 > span { float: right; }
 .view div {
     padding: 16px 0;
     text-align: right;

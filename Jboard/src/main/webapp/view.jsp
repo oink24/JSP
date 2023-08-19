@@ -76,7 +76,7 @@
 </script>
 <main>
     <section id="board" class="view">
-       <h3>글 보기</h3>
+       <h3>글 보기 <span>조회 수 <%= dto.getHit() %></span></h3>
        <table>
            <tr>
                <td>제목</td>
