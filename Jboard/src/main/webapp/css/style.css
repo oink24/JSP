@@ -10,7 +10,7 @@ a:hover {background: #ebebeb; text-decoration: underline;}
 input, textarea {outline: none;}
 
 #container {
-    width: 800px;
+    width: 100%;
     height: auto;
     margin: 0 auto;
 }
@@ -22,11 +22,17 @@ header {
     background-color: #f7f7f7;
     border-bottom: 1px solid #ebebeb;
 }
+header > h3 {
+    float: left;
+    font-weight: bold;
+    color: #777;
+    margin-top: 12px;
+    margin-left: 10px;
+}
 header > h3 > a {
     float: left;
     font-weight: bold;
     color: #777;
-    margin-top: 10px;
     margin-left: 10px;
 }
 header > p {

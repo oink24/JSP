@@ -77,9 +77,4 @@
                 </form>
             </section>
         </main>
-        <footer>
-            <p>ⓒCopyright github.com/oink24</p>
-        </footer>
-    </div>
-</body>
-</html>
+<%@ include file="../_footer.jsp" %>
