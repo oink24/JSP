@@ -36,7 +36,7 @@
 	
 	try {
 		Connection conn = ds.getConnection();
-		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `FileTest` SET `oName`=?, `sName`=? `rdate`=NOW()");
+		PreparedStatement psmt = conn.prepareStatement("INSERT INTO `FileTest` SET `oName`=?, `sName`=?, `rdate`=NOW()");
 		psmt.setString(1, fname);
 		psmt.setString(2, sName);
 		psmt.executeUpdate();
