@@ -8,7 +8,7 @@
 <%@ page import="java.util.Properties"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//메일 기본정보
+	// 메일 기본정보
 	request.setCharacterEncoding("UTF-8");
 	String sender   = request.getParameter("sender");
 	String receiver = request.getParameter("receiver");
@@ -24,7 +24,7 @@
 	props.put("mail.smtp.ssl.enable", "true");
 	props.put("mail.smtp.ssl.trust", "smtp.gmail.com");
 	
-	// Gmail STMP 세션 생성
+	// Gmail SMTP 세션 생성
 	Session gmailSession = Session.getInstance(props, new Authenticator(){
 		
 		@Override
