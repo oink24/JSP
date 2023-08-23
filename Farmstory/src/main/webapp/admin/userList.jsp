@@ -1,43 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Farmstory::admin</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/style.css">
-    <script>
-        $(function(){
-            $('.showPopup').click(function(e){
-                e.preventDefault();
-                $('#userPopup').show();
-            });
-
-            $('#userPopup .btnClose').click(function(){
-                $('#userPopup').hide();
-            });
-        });
-    </script>
-</head>
-<body>
-    <div id="container">
-        <header>
-            <a href="./index.jsp" class="logo"><img src="./images/admin_logo.jpg" alt="로고"/></a>
-            <p>
-                <a href="/">HOME |</a>
-                <a href="#">로그아웃 |</a>
-                <a href="#">고객센터</a>
-            </p>
-        </header>
+<%@ include file="./_header.jsp" %>
         <main>
-            <aside>
-                <h3>주요기능</h3>
-                <ul>
-                    <li><a href="/Farmstory/admin/productList.jsp">상품관리</a></li>
-                    <li><a href="/Farmstory/admin/orderList.jsp">주문관리</a></li>
-                    <li class="on"><a href="/Farmstory/admin/userList.jsp">회원관리</a></li>
-                </ul>
-            </aside>
+            <%@ include file="./_aside.jsp" %>
             <section id="userList">
                 <nav>
                     <h3>회원목록</h3>
@@ -128,11 +92,6 @@
                 </article>
             </section>
         </main>
-        <footer>
-            <p>
-                Copyright(C)Farmstory All rights reserved. FARMSTORY ADMINISTRATOR Version 1.0.1
-            </p>
-        </footer>
         <div id="userPopup">
             <section>
                 <nav>
@@ -185,6 +144,4 @@
                 </article>
             </section>
         </div>
-    </div>
-</body>
-</html>
+<%@ include file="./_footer.jsp" %>
