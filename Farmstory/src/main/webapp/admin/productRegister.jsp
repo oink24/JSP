@@ -7,7 +7,7 @@
                     <h3>상품등록</h3>
                 </nav>
                 <article>
-                    <form action="./proc/productRegister.jsp" method="post" enctype="multipart/form-data">
+                    <form action="./proc/productRegisterProc.jsp" method="post" enctype="multipart/form-data">
                     	<input type="hidden" name="seller" value="<%= sessUser.getUid() %>"/>
                         <table border="0">
                             <tr>
@@ -17,8 +17,8 @@
                             <tr>
                                 <td>구분</td>
                                 <td>
-                                    <select name="type">
-                                        <option>구분</option>
+                                    <select name="type" required>
+                                        <option value="" disabled selected>구분</option>
                                         <option value="1">과일</option>
                                         <option value="2">야채</option>
                                         <option value="3">곡류</option>
