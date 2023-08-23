@@ -37,7 +37,44 @@ public class ProductDAO extends DBHelper {
 		return null;
 	}
 	
-	public List<ProductDTO> selectProducts(String type, int start) {
+	public List<ProductDTO> selectProducts(int start) { // 관리자페이지 상품목록
+		List<ProductDTO> products = new ArrayList<>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_PRODUCTS_ALL);
+			psmt.setInt(1, start);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next())
+			{
+				ProductDTO dto = new ProductDTO();
+				dto.setpNo(rs.getInt(1));
+				dto.setType(rs.getInt(2));
+				dto.setpName(rs.getString(3));
+				dto.setPrice(rs.getInt(4));
+				dto.setDelivery(rs.getInt(5));
+				dto.setStock(rs.getInt(6));
+				dto.setSold(rs.getInt(7));
+				dto.setThumb1(rs.getString(8));
+				dto.setThumb2(rs.getString(9));
+				dto.setThumb3(rs.getString(10));
+				dto.setSeller(rs.getString(11));
+				dto.setEtc(rs.getString(12));
+				dto.setRdate(rs.getString(13));
+				
+				products.add(dto);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return products;
+	}
+	public List<ProductDTO> selectProducts(String type, int start) { // 장보기페이지 상품목록(list)
 		List<ProductDTO> products = new ArrayList<>();
 		try {
 			conn = getConnection();
@@ -83,7 +120,26 @@ public class ProductDAO extends DBHelper {
 		}
 		return products;
 	}
-	public int selectCountProductsTotal(String type) { // 전체 상품 갯수 조회
+	public int selectCountProductsTotal() { // 관리자페이지 상품목록 전체 갯수 조회
+		int total = 0;
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_PRODUCTS_ALL);
+			
+			rs = psmt.executeQuery();
+			
+			if (rs.next())
+				total = rs.getInt(1);
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return total;
+	}
+	public int selectCountProductsTotal(String type) { // 장보기페이지 상품목록 전체 갯수 조회
 		int total = 0;
 		
 		try {
