@@ -210,6 +210,14 @@ footer > p { color: #fff; }
 }
 
 /* 회원관리 */
+#userList > article > p {            
+    padding: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#userList .paging { text-align: center; }
+#userList .paging > .on { font-weight: bold; text-decoration: underline; }
+
 #userPopup {
     position: absolute;
     left: 0;
