@@ -391,6 +391,7 @@ main > .info > div:nth-child(3) { width: 353px; margin-left: 7px; }
     border-bottom: 1px solid #111;
     margin-top: 10px;
 }
+#sub > .market > .list > table .thumb { width: 120px; height: 120px; }
 #sub > .market > .list > table tr { border-bottom: 1px solid #eee; }
 #sub > .market > .list > table tr > td {
     padding: 10px;            
