@@ -33,14 +33,19 @@
 	// 전체 상품 갯수
 	total = dao.selectCountProductsTotal(type);
 	
+	// 페이지 번호 계산
+	if (total % 10 == 0)
+		lastPageNum = (total / 10);
+	else
+		lastPageNum = (total / 10) + 1;
+	
 	// 페이지그룹 계산
 	pageGroupCurrent = (int) Math.ceil(currentPage / 10.0);
 	pageGroupStart   = (pageGroupCurrent - 1) * 10 + 1;
 	pageGroupEnd     = pageGroupCurrent * 10;
 	
-	if (pageGroupEnd > lastPageNum) {
+	if (pageGroupEnd > lastPageNum)
 		pageGroupEnd = lastPageNum;
-	}
 	
 	List<ProductDTO> products = dao.selectProducts(type, start);
 %>
