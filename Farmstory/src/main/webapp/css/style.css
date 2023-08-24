@@ -415,11 +415,15 @@ main > .info > div:nth-child(3) { width: 353px; margin-left: 7px; }
 }
 #sub > .market > .view > .basic {
     width: 100%;
-    height: 270px;
+    height: 300px;
     position: relative;
     overflow: hidden;
 }
-#sub > .market > .view > .basic > img { float: left; }
+#sub > .market > .view > .basic > img {
+	float: left;
+	width: 240px;
+	height: 240px;
+}
 #sub > .market > .view > .basic > table {
     float: right;
     width: 60%;
@@ -428,9 +432,12 @@ main > .info > div:nth-child(3) { width: 353px; margin-left: 7px; }
     border-top: 2px solid #e7e7e7;
     border-bottom: 2px solid #e7e7e7;
 }
-#sub > .market > .view > .basic > table em { color: #777; }
+#sub > .market > .view > .basic > table td:nth-child(1) { width: 30%; }
+#sub > .market > .view > .basic > table em { color: #808080; }
 #sub > .market > .view > .basic > table .total { font-weight: bold; color: #c20a0a; }
 #sub > .market > .view > .basic > .btnOrder { position: absolute; right: 0; bottom: 0; }
+
+#sub > .market > .view > .detail > img { width: 760px; }
 
 #sub > .market > .view > .exchange table {
     width: 100%;
@@ -652,7 +659,7 @@ input[type=number]::-webkit-outer-spin-button {
 /* 글 보기 */
 .view div {
     padding: 16px 0;
-    text-align: right;
+    text-align: left;
 }
 
 .view section {
