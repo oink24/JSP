@@ -21,7 +21,7 @@ public class WelcomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// View 포워딩
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/welcome.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/welcome.jsp");
 		dispatcher.forward(request, response);
 	}
 

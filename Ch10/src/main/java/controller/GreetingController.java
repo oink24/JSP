@@ -21,7 +21,7 @@ public class GreetingController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		// View 포워딩
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/greeting.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/greeting.jsp");
 		dispatcher.forward(req, resp);
 	}
 	@Override
