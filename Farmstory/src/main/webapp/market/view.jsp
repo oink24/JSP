@@ -1,3 +1,4 @@
+<%@ page import="kr.co.farmstory.db.Utils"%>
 <%@ page import="kr.co.farmstory.dto.ProductDTO"%>
 <%@ page import="kr.co.farmstory.dao.ProductDAO"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
@@ -69,7 +70,7 @@
                     </tr>
                     <tr>
                         <td>판매가격</td>
-                        <td><%= dto.getPriceWithComma() %>원</td>
+                        <td><%= Utils.comma(dto.getPrice()) %>원</td>
                     </tr>
                     <tr>
                         <td>구매수량</td>
@@ -79,7 +80,7 @@
                     </tr>
                     <tr>
                         <td>합계</td>
-                        <td class="total"><%= dto.getPriceWithComma() %>원</td>
+                        <td class="total"><%= Utils.comma(dto.getPrice()) %>원</td>
                     </tr>
                 </table>
                 <a href="./order.jsp" class="btnOrder">
