@@ -26,6 +26,12 @@
 			
 			$('.total').text(total.toLocaleString()+'원');
 		});
+		
+		// 주문하기 (바로구매하기 버튼)
+		$('.btnOrder').click(function(e){
+			e.preventDefault();
+			$('#formOrder').submit();
+		});
 	});
 </script>
 <div id="sub"> <!-- main -->
@@ -47,7 +53,7 @@
             <!-- 컨텐츠 시작 -->
             <h3>기본정보</h3>
             <div class="basic">
-                <img src="/Farmstory/thumb/<%= dto.getThumb2() %>" alt="<%= dto.getpName() %>">
+                <img src="/Farmstory/thumb/<%= dto.getThumb2() %>" alt="상품이미지">
                 <table border="0">                            
                     <tr>
                         <td>상품명</td>
@@ -83,7 +89,17 @@
                         <td class="total"><%= Utils.comma(dto.getPrice()) %>원</td>
                     </tr>
                 </table>
-                <a href="./order.jsp" class="btnOrder">
+                <form id="formOrder" action="/Farmstory/market/order.jsp" method="post">
+                	<input type="hidden" name="thumb2"   value="<%= dto.getThumb2() %>">
+                	<input type="hidden" name="pName"    value="<%= dto.getpName() %>">
+                	<input type="hidden" name="pNo"      value="<%= dto.getpNo() %>">
+                	<input type="hidden" name="delivery" value="<%= dto.getDelivery() %>">
+                	<input type="hidden" name="price"    value="<%= dto.getPrice() %>">
+                	<input type="hidden" name="count"    value="1">
+                	<input type="hidden" name="total"    value="<%= dto.getPrice() %>">
+                	<input type="hidden" name="final"    value="<%= dto.getPrice() + dto.getDelivery() %>">
+                </form>
+                <a href="#" class="btnOrder">
                     <img src="../images/market_btn_order.gif" alt="바로 구매하기"/>
 				</a>
             </div>

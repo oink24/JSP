@@ -1,7 +1,6 @@
 package kr.co.farmstory.dto;
 
 import java.io.File;
-import java.text.DecimalFormat;
 import java.util.UUID;
 
 public class ProductDTO {

@@ -427,7 +427,7 @@ main > .info > div:nth-child(3) { width: 353px; margin-left: 7px; }
 #sub > .market > .view > .basic > table {
     float: right;
     width: 60%;
-    height: 200px;
+    height: 240px;
     margin-left: 16px;
     border-top: 2px solid #e7e7e7;
     border-bottom: 2px solid #e7e7e7;
@@ -477,7 +477,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     overflow: hidden;
 }
-#sub > .market > .order > .info > img { float: left; }
+#sub > .market > .order > .info > img { float: left; width: 240px; }
 #sub > .market > .order > .info > table {
     float: right;
     width: 60%;
