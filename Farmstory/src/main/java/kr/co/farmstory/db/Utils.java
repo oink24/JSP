@@ -16,4 +16,8 @@ public class Utils {
 		
 		return df.format(number);
 	}
+	
+	public static String ellipsis(String str, int length) {
+		return str.substring(0, length)+"...";
+	}
 }
