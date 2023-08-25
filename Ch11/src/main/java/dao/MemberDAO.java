@@ -11,6 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import dto.MemberDTO;
@@ -25,7 +26,7 @@ public class MemberDAO {
 	private MemberDAO() {}
 	
 	// 로거생성
-	private org.slf4j.Logger logger = LoggerFactory.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public void insertMember(MemberDTO dto) {
 		try {
