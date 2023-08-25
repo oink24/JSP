@@ -16,5 +16,9 @@
 		<h4>User1 실습</h4>
 		<a href="/Ch10/user1/list.do">목록</a>
 		<a href="/Ch10/user1/register.do">등록</a>
+		
+		<h4>User2 실습</h4>
+		<a href="/Ch10/user2/list.do">목록</a>
+		<a href="/Ch10/user2/register.do">등록</a>
 	</body>
 </html>
