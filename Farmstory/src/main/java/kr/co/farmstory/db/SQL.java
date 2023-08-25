@@ -102,4 +102,5 @@ public class SQL {
 											+ "ON a.orderProduct = b.pNo "
 											+ "LIMIT ?, 10";
 	public static final String SELECT_COUNT_ORDERS = "SELECT COUNT(*) FROM `Order`";
+	public static final String DELETE_ORDER = "DELETE FROM `Order` WHERE `orderNo`=?";
 }

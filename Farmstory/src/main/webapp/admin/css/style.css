@@ -152,6 +152,7 @@ footer > p { color: #fff; }
 }
 #orderList .paging { text-align: center; }
 #orderList .paging > .on { font-weight: bold; text-decoration: underline; }
+#orderList .hidden { display: none; }
 
 #orderPopup {
     position: absolute;
@@ -186,16 +187,16 @@ footer > p { color: #fff; }
     overflow: hidden;
 }
 #orderPopup > section > article > h3 { font-weight: bold; }
-#orderPopup > section > article > table {                     
+#orderPopup > section > article table {                     
     width: 100%;
     border-collapse: collapse;
     margin-top: 6px;
     margin-bottom: 12px;
     border-top: 2px solid #333;
 }
-#orderPopup > section > article > table td { padding: 4px; box-sizing: border-box; }
-#orderPopup > section > article > table .thumb { width: 10%; }
-#orderPopup > section > article > table tr { border-bottom: 1px dotted #999; }
+#orderPopup > section > article table td { padding: 4px; box-sizing: border-box; }
+#orderPopup .thumb > img { width: 120px; height: 120px; }
+#orderPopup > section > article table > tr { border-bottom: 1px dotted #999; }
 #orderPopup .btnClose {
     position: absolute;
     right: 10px;

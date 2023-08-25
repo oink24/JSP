@@ -100,5 +100,18 @@ public class OrderDAO extends DBHelper {
 	}
 	
 	public void updateOrder(OrderDTO dto) {}
-	public void deleteOrder(int orderNo) {}
+	
+	public void deleteOrder(String orderNo) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_ORDER);
+			psmt.setString(1, orderNo);
+			
+			psmt.executeUpdate();
+			
+			close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

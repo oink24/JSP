@@ -46,6 +46,23 @@
 	
 	List<OrderDTO> orders = dao.selectOrders(start);
 %>
+<script>
+	$(function(){
+		$('input[name=all]').change(function(){
+			const isChecked = $(this).is(':checked');
+			
+			if (isChecked) // 전체선택
+				$('input[name=chk]').prop('checked', true);
+			else // 전체해제
+				$('input[name=chk]').prop('checked', false);
+		});
+		
+		$('.orderDelete').click(function(e){
+			e.preventDefault();
+			$('#formCheck').submit();
+		});
+	});
+</script>
         <main>
             <%@ include file="./_aside.jsp" %>
             <section id="orderList">
@@ -62,22 +79,26 @@
                             <th>수량</th>
                             <th>배송비</th>
                             <th>합계</th>
-                            <th>주문자</th>
+                            <th>주문자 ID</th>
                             <th>주문일</th>
                             <th>확인</th>
                         </tr>
                         <% for (OrderDTO order : orders) { %>
                         <tr>
-                            <td><input type="checkbox" name=""/></td>
-                            <td><%= order.getOrderNo() %></td>
-                            <td><%= Utils.ellipsis(order.getpName(), 5) %></td>                            
-                            <td><%= Utils.comma(order.getOrderPrice()) %></td>
-                            <td><%= order.getOrderCount() %></td>
-                            <td><%= Utils.comma(order.getOrderDelivery()) %></td>
-                            <td><%= Utils.comma(order.getOrderTotal()) %></td>
-                            <td><%= order.getOrderUser() %></td>
-                            <td><%= order.getOrderDate() %></td>
+                            <td class="chk"><input type="checkbox" name="chk"/></td>
+                            <td class="orderNo"><%= order.getOrderNo() %></td>
+                            <td class="pName"><%= Utils.ellipsis(order.getpName(), 5) %></td>                            
+                            <td class="price"><%= Utils.comma(order.getOrderPrice()) %>원</td>
+                            <td class="count"><%= order.getOrderCount() %></td>
+                            <td class="delivery"><%= Utils.comma(order.getOrderDelivery()) %>원</td>
+                            <td class="total"><%= Utils.comma(order.getOrderTotal()) %>원</td>
+                            <td class="orderer"><%= order.getOrderUser() %></td>
+                            <td class="date"><%= order.getOrderDate() %></td>
                             <td><a href="#" class="showPopup">[상세확인]</a></td>
+                            <td class="hidden orderProduct"><%= order.getOrderProduct() %></td>
+                            <td class="hidden thumb1"><%= order.getThumb1() %></td>
+		                    <td class="hidden receiver"><%= order.getReceiver() %></td>
+		                    <td class="hidden address"><%= order.getAddr1()+" "+order.getAddr2() %></td>
                         </tr>
                         <% } %>
                     </table>
@@ -108,46 +129,48 @@
                 </nav>
                 <article>  
                     <h3>기본정보</h3>
-                    <table border="0">
-                        <tr>
-                            <td rowspan="7" class="thumb"><img src="./images/sample_item1.jpg" alt="사과 500g"></td>
-                            <td>상품번호</td>
-                            <td>1011</td>
-                        </tr>
-                        <tr>
-                            <td>상품명</td>
-                            <td>사과 500g</td>
-                        </tr>
-                        <tr>
-                            <td>판매가격</td>
-                            <td>4,000원</td>
-                        </tr>
-                        <tr>
-                            <td>수량</td>
-                            <td>2개</td>
-                        </tr>
-                        <tr>
-                            <td>배송비</td>
-                            <td>3,000원</td>
-                        </tr>
-                        <tr>
-                            <td>합계</td>
-                            <td>11,000원</td>
-                        </tr>
-                        <tr>
-                            <td>주문자</td>
-                            <td>홍길동</td>
-                        </tr>                        
-                    </table>
+                    <form id="formCheck" action="./proc/deleteOrdersProc.jsp" method="get">
+	                    <table border="0">
+	                        <tr>
+	                            <td rowspan="7" class="thumb"><img src="" alt="상품이미지"></td>
+	                            <td>상품번호</td>
+	                            <td class="orderProduct"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>상품명</td>
+	                            <td class="pName"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>판매가격</td>
+	                            <td class="price"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>수량</td>
+	                            <td class="count"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>배송비</td>
+	                            <td class="delivery"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>합계</td>
+	                            <td class="total"></td>
+	                        </tr>
+	                        <tr>
+	                            <td>주문자</td>
+	                            <td class="orderer"></td>
+	                        </tr>                        
+	                    </table>
+                    </form>
                     <h3>배송지 정보</h3>
                     <table border="0">
                         <tr>
                             <td>받는분</td>
-                            <td>홍길동</td>
+                            <td class="receiver"></td>
                         </tr>
                         <tr>
                             <td>배송지</td>
-                            <td>부산광역시 부산진구 대연동 120 루미너스 10층</td>
+                            <td class="address"></td>
                         </tr>
                     </table>
                 </article>
