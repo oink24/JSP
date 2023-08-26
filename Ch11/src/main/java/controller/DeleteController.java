@@ -30,8 +30,8 @@ public class DeleteController extends HttpServlet {
 		logger.info("DeleteController doGet()...1");
 		
 		String uid = req.getParameter("uid");
-		service.deleteMember(uid);
 		
+		service.deleteMember(uid);
 		resp.sendRedirect("/Ch11/list.do");
 		
 		logger.info("DeleteController doGet()...2");

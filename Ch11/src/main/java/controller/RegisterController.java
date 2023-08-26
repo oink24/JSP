@@ -38,11 +38,11 @@ public class RegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		logger.info("RegisterController doPost()...1");
 		
-		String uid = req.getParameter("uid");
+		String uid  = req.getParameter("uid");
 		String name = req.getParameter("name");
-		String hp = req.getParameter("hp");
-		String pos = req.getParameter("pos");
-		String dep = req.getParameter("dep");
+		String hp   = req.getParameter("hp");
+		String pos  = req.getParameter("pos");
+		String dep  = req.getParameter("dep");
 		
 		MemberDTO dto = new MemberDTO();
 		dto.setUid(uid);
@@ -51,10 +51,9 @@ public class RegisterController extends HttpServlet {
 		dto.setPos(pos);
 		dto.setDep(dep);
 		
-		logger.info("RegisterController doPost()...2 :" + dto);
-		
 		service.insertMember(dto);
-		
 		resp.sendRedirect("/Ch11/list.do");
+		
+		logger.info("RegisterController doPost()...2 :" + dto);
 	}
 }

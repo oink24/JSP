@@ -42,7 +42,6 @@ public class ModifyController extends HttpServlet {
 		dto.setAge(age);
 		
 		service.updateUser1(dto);
-		
 		resp.sendRedirect("/Ch10/user1/list.do");
 	}
 }

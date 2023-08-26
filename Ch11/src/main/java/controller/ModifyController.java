@@ -59,7 +59,6 @@ public class ModifyController extends HttpServlet {
 		dto.setDep(dep);
 		
 		service.updateMember(dto);
-		
 		resp.sendRedirect("/Ch11/list.do");
 		
 		logger.info("ModifyController doPost()...2");

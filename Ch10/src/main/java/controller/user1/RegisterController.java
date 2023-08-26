@@ -38,7 +38,6 @@ public class RegisterController extends HttpServlet {
 		dto.setAge(age);
 		
 		service.insertUser1(dto);
-		
 		resp.sendRedirect("/Ch10/user1/list.do");
 	}
 }

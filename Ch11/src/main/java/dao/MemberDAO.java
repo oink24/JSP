@@ -157,7 +157,7 @@ public class MemberDAO {
 			logger.info("MemberDAO updateMember...2");
 			
 		}catch(Exception e) {
-			logger.error("※※※ MemberDAO selectMembers error : " + e.getMessage());
+			logger.error("※※※ MemberDAO updateMember error : " + e.getMessage());
 		}
 	}
 	
@@ -181,7 +181,7 @@ public class MemberDAO {
 			logger.info("MemberDAO deleteMember...2");
 			
 		}catch(Exception e) {
-			logger.error("※※※ MemberDAO selectMembers error : " + e.getMessage());
+			logger.error("※※※ MemberDAO deleteMember error : " + e.getMessage());
 		}
 	}
 }
