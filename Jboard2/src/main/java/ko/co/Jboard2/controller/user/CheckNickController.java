@@ -26,7 +26,7 @@ public class CheckNickController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String nick = req.getParameter("nick");
-		int result = service.selectCountUid(nick);
+		int result  = service.selectCountUid(nick);
 		
 		logger.info("result : " + result);
 		

@@ -27,21 +27,21 @@ public class RegisterController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		String uid   = req.getParameter("uid");
-		String pass1  = req.getParameter("pass1");
+		String pass1 = req.getParameter("pass1");
 		String name  = req.getParameter("name");
 		String nick  = req.getParameter("nick");
 		String email = req.getParameter("email");
 		String hp    = req.getParameter("hp");
-		String regip  = req.getRemoteAddr();
+		String regip = req.getRemoteAddr();
 		
 		UserDTO dto = new UserDTO();
 		dto.setUid(uid);
-		dto.setUid(pass1);
-		dto.setUid(name);
-		dto.setUid(nick);
-		dto.setUid(email);
-		dto.setUid(hp);
-		dto.setUid(regip);
+		dto.setPass(pass1);
+		dto.setName(name);
+		dto.setNick(nick);
+		dto.setEmail(email);
+		dto.setHp(hp);
+		dto.setRegip(regip);
 		
 		service.insertUser(dto);
 		resp.sendRedirect("/Jboard2/user/login.do?success=200");

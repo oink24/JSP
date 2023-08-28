@@ -66,7 +66,7 @@
 				if(data.result > 0)
 					$('.resultHp').css('color', 'red').text('이미 사용중인 휴대폰입니다.');
 				else
-					$('.resultHp').css('color', 'green').text('사용 가능한 휴대폰입니다.');
+					$('.resultHp').css('color', 'green').text('사용 가능한 휴대폰번호입니다.');
 			});
 		});
 	} // onload end

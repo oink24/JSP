@@ -29,9 +29,9 @@ public class UserDAO extends DBHelper {
 			psmt.setString(4, dto.getNick());
 			psmt.setString(5, dto.getEmail());
 			psmt.setString(6, dto.getHp());
-			psmt.setString(7, dto.getRole());
-			psmt.setString(8, dto.getZip());
-			psmt.setString(9, dto.getAddr1());
+			psmt.setString(7, dto.getZip());
+			psmt.setString(8, dto.getAddr1());
+			psmt.setString(9, dto.getAddr2());
 			psmt.setString(10, dto.getRegip());
 			
 			psmt.executeUpdate();
