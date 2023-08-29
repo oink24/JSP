@@ -9,12 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import ko.co.Jboard2.dto.UserDTO;
 import ko.co.Jboard2.service.UserService;
 
 @WebServlet("/user/register.do")
 public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = -101705251243847899L;
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	private UserService service = UserService.getInstance();
 
 	@Override
@@ -44,6 +48,7 @@ public class RegisterController extends HttpServlet {
 		dto.setRegip(regip);
 		
 		service.insertUser(dto);
+		logger.info("RegisterController doPost...");
 		resp.sendRedirect("/Jboard2/user/login.do?success=200");
 	}
 }

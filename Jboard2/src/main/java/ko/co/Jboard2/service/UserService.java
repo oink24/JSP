@@ -26,10 +26,9 @@ public class UserService {
 	}
 	private UserService() {}
 	
-	private static String generatedCode;
-	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	UserDAO dao = UserDAO.getInstance();
+	private static String generatedCode;
 	
 	public void insertUser(UserDTO dto) {
 		dao.insertUser(dto);
@@ -63,7 +62,7 @@ public class UserService {
 		
 		// 인증코드 생성
 		int code = ThreadLocalRandom.current().nextInt(100000, 1000000); // 10만 ~ 100만 사이의 랜덤값
-		generatedCode = ""+code;
+		generatedCode = String.valueOf(code);
 		
 		// 기본정보
 		String sender = "oooq3o@gmail.com";
