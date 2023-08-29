@@ -3,8 +3,12 @@
 <script>
 	const success = ${success};
 	
-	if (success == 100)
+	if (success == 100) // 아이디 비밀번호 불일치
 		alert('로그인에 실패하였습니다. 다시 확인하세요.');
+	else if (success == 200) // 로그아웃
+		alert('로그아웃되었습니다.');
+	else if (success == 101) // 인증없이(로그인X) list 요청
+		alert('로그인을 먼저 하셔야 합니다.');
 </script>
 <main id="user">
     <section class="login">
