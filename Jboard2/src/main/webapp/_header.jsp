@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>글목록</title>
+    <title>Board System v2.0</title>
     <link rel="stylesheet" href="/Jboard2/css/style.css"/>    
 </head>
 <body>

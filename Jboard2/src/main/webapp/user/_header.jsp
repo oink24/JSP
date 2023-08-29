@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>아이디 찾기</title>
+    <title>Board System v2.0</title>
     <link rel="stylesheet" href="/Jboard2/css/style.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
