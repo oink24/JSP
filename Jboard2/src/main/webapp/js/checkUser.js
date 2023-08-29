@@ -37,11 +37,13 @@ window.onload = function(){
 					{
 						resultUid.innerText = '이미 사용중인 아이디입니다.';
 						resultUid.style.color = 'red';
+						isUidOk = false;
 					}
 					else
 					{
 						resultUid.innerText = '사용 가능한 아이디입니다.'
 						resultUid.style.color = 'green';
+						isUidOk = true;
 					}
 				}
 			}
@@ -89,7 +91,7 @@ window.onload = function(){
 		// 휴대폰번호 입력값 검사
 		if(!hp.match(reHp))
 		{
-			$('.resultHp').text('유효한 휴대폰번호가 아닙니다.');
+			$('.resultHp').css('color', 'red').text('유효한 휴대폰번호가 아닙니다.');
 			isHpOk = false;
 			return;	
 		}

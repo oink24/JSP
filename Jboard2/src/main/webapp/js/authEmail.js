@@ -8,6 +8,15 @@ $(function(){
 	$('#btnEmailCode').click(function(){
 		
 		const email = $('input[name=email]').val();
+		
+		// 이메일 입력값 검사
+		if (!email.match(reEmail))
+		{
+			$('.resultEmail').css('color', 'red').text('유효한 이메일이 아닙니다.');
+			isEmailOk = false;
+			return;
+		}
+		
 		const jsonData = {
 			"email": email
 		};
@@ -16,7 +25,7 @@ $(function(){
 			return;
 		
 		preventDoubleClick = true;
-		$('.resultEmail').text('인증코드 전송 중입니다. 잠시만 기다려주세요.');
+		$('.resultEmail').css('color', 'red').text('인증코드 전송 중입니다. 잠시만 기다려주세요.');
 		
 		setTimeout(function(){
 			
@@ -30,14 +39,14 @@ $(function(){
 					
 					if (data.result > 0)
 					{
-						$('.resultEmail').css('color', 'green').text('이미 사용중인 이메일입니다.');
+						$('.resultEmail').css('color', 'red').text('이미 사용중인 이메일입니다.');
 						isEmailOk = false;
 					}
 					else
 					{
 						if (data.status > 0)
 						{
-							$('.resultEmail').css('color', 'green').text('이메일을 확인 후 인증코드를 입력하세요.');
+							$('.resultEmail').css('color', 'red').text('이메일을 확인 후 인증코드를 입력하세요.');
 							$('.auth').show();
 							$('input[name=email]').attr('readonly', true);
 						}
