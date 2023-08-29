@@ -1,10 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/Jboard2/js/zipcode.js"></script>
+<script src="/Jboard2/js/validation.js"></script>
 <script src="/Jboard2/js/checkUser.js"></script>
 <script src="/Jboard2/js/authEmail.js"></script>
 <main id="user">
     <section class="register">
-        <form action="/Jboard2/user/register.do" method="post">
+        <form id="formUser" action="/Jboard2/user/register.do" method="post">
             <table border="1">
                 <caption>사이트 이용정보 입력</caption>
                 <tr>
@@ -12,7 +15,7 @@
                     <td>
                         <input type="text" name="uid" placeholder="아이디 입력"/>
                         <button type="button" id="btnCheckUid"><img src="../img/chk_id.gif" alt="중복확인"/></button>
-                        <span class="uidResult"></span>
+                        <span class="resultUid"></span>
                     </td>
                 </tr>
                 <tr>
@@ -22,6 +25,7 @@
                 <tr>
                     <td>비밀번호 확인</td>
                     <td><input type="password" name="pass2" placeholder="비밀번호 입력 확인"/></td>
+                    <span class="resultPass"></span>
                 </tr>
             </table>
             <table border="1">
@@ -29,7 +33,8 @@
                 <tr>
                     <td>이름</td>
                     <td>
-                        <input type="text" name="name" placeholder="이름 입력"/>                        
+                        <input type="text" name="name" placeholder="이름 입력"/>
+                        <span class="resultName"></span>
                     </td>
                 </tr>
                 <tr>
@@ -38,7 +43,7 @@
                         <p class="nickInfo">공백없는 한글, 영문, 숫자 입력</p>
                         <input type="text" name="nick" placeholder="별명 입력"/>
                         <button type="button" id="btnCheckNick"><img src="../img/chk_id.gif" alt="중복확인"/></button>
-                        <span class="nickResult"></span>
+                        <span class="resultNick"></span>
                     </td>
                 </tr>
                 <tr>

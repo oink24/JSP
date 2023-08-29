@@ -101,7 +101,7 @@ public class UserDAO extends DBHelper {
 			close();
 			
 		}catch(Exception e){
-			e.printStackTrace();
+			logger.error("selectCountHp error : " + e.getMessage());
 		}
 		
 		return result;
@@ -123,7 +123,7 @@ public class UserDAO extends DBHelper {
 			close();
 			
 		}catch(Exception e){
-			e.printStackTrace();
+			logger.error("selectCountEmail error : " + e.getMessage());
 		}
 		
 		return result;

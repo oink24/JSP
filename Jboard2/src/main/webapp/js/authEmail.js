@@ -28,20 +28,29 @@ $(function(){
 				success: function(data){
 					console.log(data);
 					
-					if (data.status > 0)
+					if (data.result > 0)
 					{
-						$('.resultEmail').css('color', 'green').text('이메일을 확인 후 인증코드를 입력하세요.');
-						$('.auth').show();
+						$('.resultEmail').css('color', 'green').text('이미 사용중인 이메일입니다.');
+						isEmailOk = false;
 					}
 					else
 					{
-						$('.resultEmail').css('color', 'red').text('인증코드 전송이 실패했습니다. 잠시후 다시 시도하십시오.');
+						if (data.status > 0)
+						{
+							$('.resultEmail').css('color', 'green').text('이메일을 확인 후 인증코드를 입력하세요.');
+							$('.auth').show();
+							$('input[name=email]').attr('readonly', true);
+						}
+						else
+						{
+							$('.resultEmail').css('color', 'red').text('인증코드 전송이 실패했습니다. 잠시후 다시 시도하십시오.');
+						}
 					}
 					
 					preventDoubleClick = false;
 				}
 			});
-		}, 1000); // btnEmailCode.click end
+		}, 1000); // setTimeout end
 	});
 	
 	$('#btnEmailAuth').click(function(){
@@ -61,9 +70,15 @@ $(function(){
 				console.log(data);
 				
 				if (data.result > 0)
+				{
 					$('.resultEmail').css('color', 'green').text('이메일 인증이 완료되었습니다.');
+					isEmailOk = true;
+				}
 				else
+				{
 					$('.resultEmail').css('color', 'red').text('이메일 인증이 실패하였습니다.다시 시도하십시오.');
+					isEmailOk = false;
+				}
 			}
 		});
 	});
