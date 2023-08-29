@@ -28,7 +28,6 @@
                     <td>2022-01-01 12:45:12</td>
                 </tr>
             </table>
-
             <table border="1">
                 <caption>개인정보 수정</caption>
                 <tr>
@@ -88,9 +87,7 @@
                 <a href="/Jboard2/user/login.do" class="btn btnCancel">취소</a>
                 <input type="submit" value="회원수정" class="btn btnRegister"/>
             </div>
-
         </form>
-
     </section>
 </main>
 <%@ include file="./_footer.jsp" %>

@@ -24,7 +24,6 @@
                 </tr>
             </table>
             <input type="submit" value="로그인" class="btnLogin"/>
-            
         </form>
         <div>
             <h3>회원 로그인 안내</h3>

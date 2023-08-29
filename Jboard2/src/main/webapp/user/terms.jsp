@@ -40,12 +40,10 @@
                 </td>
             </tr>
         </table>
-        
         <div>
             <a href="/Jboard2" class="btn btnCancel">취소</a>
             <a href="/Jboard2/user/register.do" class="btn btnNext">다음</a>
         </div>
-
     </section>
 </main>
 <%@ include file="./_footer.jsp" %>
