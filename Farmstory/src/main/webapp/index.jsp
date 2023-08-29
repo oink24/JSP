@@ -5,9 +5,9 @@
 <%@ include file="./_header.jsp" %>
 <%
 	ArticleDAO dao = new ArticleDAO();
-	List<ArticleDTO> latests1 = dao.selectLatests("grow", 5);
-	List<ArticleDTO> latests2 = dao.selectLatests("school", 5);
-	List<ArticleDTO> latests3 = dao.selectLatests("story", 5);
+	List<ArticleDTO> latests1 = dao.selectLatests("story", 5);
+	List<ArticleDTO> latests2 = dao.selectLatests("grow", 5);
+	List<ArticleDTO> latests3 = dao.selectLatests("school", 5);
 	
 	List<ArticleDTO> tabLatests1 = dao.selectLatests("notice", 3);
 	List<ArticleDTO> tabLatests2 = dao.selectLatests("qna", 3);
@@ -36,7 +36,7 @@
             <a href="./board/list.jsp?group=Croptalk&cate=story"><img src="./images/main_latest3_tit.png" alt="농작물이야기"></a>
             <img src="./images/main_latest3_img.jpg" alt="이미지">
             <table border="0">
-            	<% for (ArticleDTO latest : latests3) { %>
+            	<% for (ArticleDTO latest : latests1) { %>
                 <tr>
                     <td>></td>
                     <td><a href="./board/view.jsp?group=Croptalk&cate=story&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
@@ -49,7 +49,7 @@
             <a href="./board/list.jsp?group=Croptalk&cate=grow"><img src="./images/main_latest1_tit.png" alt="텃밭가꾸기"></a>
             <img src="./images/main_latest1_img.jpg" alt="이미지">
             <table border="0">
-            	<% for (ArticleDTO latest : latests1) { %>
+            	<% for (ArticleDTO latest : latests2) { %>
                 <tr>
                     <td>></td>
                     <td><a href="./board/view.jsp?group=Croptalk&cate=grow&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
@@ -62,7 +62,7 @@
             <a href="./board/list.jsp?group=Croptalk&cate=school"><img src="./images/main_latest2_tit.png" alt="귀농학교"></a>
             <img src="./images/main_latest2_img.jpg" alt="이미지">
             <table border="0">
-            	<% for (ArticleDTO latest : latests2) { %>
+            	<% for (ArticleDTO latest : latests3) { %>
                 <tr>
                     <td>></td>
                     <td><a href="./board/view.jsp?group=Croptalk&cate=school&no=<%= latest.getNo() %>"><%= latest.getTitle() %></a></td>
