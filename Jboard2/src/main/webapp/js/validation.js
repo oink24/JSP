@@ -11,12 +11,12 @@ let isEmailOk = false;
 let isHpOk    = false;
 
 // 데이터 검증에 사용하는 정규표현식
-let reUid   = /^[a-z]+[a-z0-9]{4,19}$/g;
-let rePass  = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{5,16}$/;
-let reName  = /^[가-힣]{2,10}$/ 
-let reNick  = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
-let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
+const reUid   = /^[a-z]+[a-z0-9]{4,19}$/g;
+const rePass  = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{5,16}$/;
+const reName  = /^[가-힣]{2,10}$/ 
+const reNick  = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
+const reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+const reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
 
 // 유효성검증 (Validation)
 $(function(){
