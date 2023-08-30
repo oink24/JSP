@@ -4,6 +4,48 @@
 <script>
 	window.onload = function(){
 		
+		const inputUid  = document.getElementsByName('uid')[0];
+		const inputPass = document.getElementsByName('pass2')[0];
+		
+		// 비밀번호 변경
+		const btnUpdatePass = document.getElementById('btnUpdatePass');
+		btnUpdatePass.addEventListener('click', function(){
+
+			if (isPassOk && confirm('비밀번호를 수정하시겠습니까?'))
+			{
+				// 폼데이터 객체 전송안됨... 연구 필요
+				const formData = new FormData();
+				formData.append('kind', 'PASSWORD');
+				formData.append('uid', inputUid.value);
+				formData.append('pass', inputPass.value);
+				
+				// fetch에서 post 데이터 전송을 위해 URLSearchParams 사용
+				const params = new URLSearchParams();
+				formData.append('kind', 'PASSWORD');
+				formData.append('uid', inputUid.value);
+				formData.append('pass', inputPass.value);
+				
+				// fetch 함수로 AJAX 통신
+				fetch('/Jboard2/user/myInfo.do', {
+					method: 'POST',
+					body: params
+				})
+				.then((response)=>response.json())
+				.then((data)=>{
+					console.log('data : ' + data);
+					if (data.result > 0)
+					{
+						alert('비밀번호가 수정되었습니다. 다시 로그인하십시오.');
+						location.href = '/Jboard2/user/logout.do';
+					}
+				});
+			}
+			else
+			{
+				alert('변경 비밀번호가 유효하지 않거나 일치하지 않습니다.');
+			}
+		});
+		
 		// 회원 탈퇴
 		const btnWithdraw = document.getElementById('btnWithdraw');
 		btnWithdraw.addEventListener('click', function(){

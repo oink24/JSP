@@ -63,8 +63,8 @@ public class UserService {
 	public void updateUser(UserDTO dto) {
 		dao.updateUser(dto);
 	}
-	public void updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
-		dao.updateUserPass(uid, pass);
+	public int updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
+		return dao.updateUserPass(uid, pass);
 	}
 	public int updateUserForWithdraw(String uid) { // 회원탈퇴
 		return dao.updateUserForWithdraw(uid);

@@ -252,19 +252,23 @@ public class UserDAO extends DBHelper {
 	}
 	
 	public void updateUser(UserDTO dto) {}
-	public void updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
+	public int updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
+		
+		int result = 0;
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.UPDATE_USER_PASS);
 			psmt.setString(1, pass);
 			psmt.setString(2, uid);
 			
-			psmt.executeUpdate();
+			result = psmt.executeUpdate();
 			close();
 			
 		}catch(Exception e) {
 			logger.error("updatePass() error : " + e.getMessage());
 		}
+		
+		return result;
 	}
 	public int updateUserForWithdraw(String uid) { // 회원탈퇴
 		
