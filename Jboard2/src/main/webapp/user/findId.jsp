@@ -16,7 +16,7 @@
 </script>
 <main id="user">
     <section class="find findId">
-        <form id="formFindId" action="/Jboard2/findIdResult.do" method="get">
+        <form id="formFindId" action="/Jboard2/user/findIdResult.do" method="POST">
             <table border="0">
                 <caption>아이디 찾기</caption>
                 <tr>
