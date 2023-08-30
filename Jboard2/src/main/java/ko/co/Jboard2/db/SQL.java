@@ -26,6 +26,15 @@ public class SQL {
 	public static final String SELECT_COUNT_UID_EMAIL = "SELECT COUNT(*) FROM `User` WHERE `uid`=? AND `email`=?";
 	public static final String SELECT_COUNT_HP = "SELECT COUNT(*) FROM `User` WHERE `hp`=?";
 	
+	public static final String UPDATE_USER = "UPDATE `User` SET "
+											+ "`name`=?, "
+											+ "`nickname`=?, "
+											+ "`email`=?, "
+											+ "`hp`=?, "
+											+ "`zip`=?, "
+											+ "`addr1`=?, "
+											+ "`addr2`=? "
+											+ "WHERE `uid`=?";
 	public static final String UPDATE_USER_PASS = "UPDATE `User` SET `pass`=SHA2(?, 256) WHERE `uid`=?";
 	public static final String UPDATE_USER_FOR_WITHDRAW = "UPDATE `User` SET "
 											+ "`pass`=null, "

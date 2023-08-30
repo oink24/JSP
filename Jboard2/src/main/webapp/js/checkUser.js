@@ -1,54 +1,57 @@
 /**
  * 사용자 중복체크
  */
-window.onload = function(){
+$(function(){
 	
 	// 아이디 중복체크
 	const inputUid    = document.getElementsByName('uid')[0];
 	const resultUid   = document.getElementsByClassName('resultUid')[0];
 	const btnCheckUid = document.getElementById('btnCheckUid');
 	
-	btnCheckUid.onclick = function(){
-		
-		const uid = inputUid.value;
-		
-		// 아이디 입력값 검사
-		if (!uid.match(reUid))
-		{
-			resultUid.innerText = '아이디는 영소문자로 시작하여 5자리 이상, 숫자와의 조합만 가능합니다.';
-			resultUid.style.color = 'red';
-			isUidOk = false;
-			return;
-		}
-		
-		// 서버 전송
-		const xhr = new XMLHttpRequest();
-		xhr.open('GET', '/Jboard2/user/checkUid.do?uid='+inputUid.value);
-		xhr.send();
-		
-		xhr.onreadystatechange = function(){
-			if (xhr.readyState == XMLHttpRequest.DONE)
+	if (btnCheckUid != null)
+	{
+		btnCheckUid.onclick = function(){
+			
+			const uid = inputUid.value;
+			
+			// 아이디 입력값 검사
+			if (!uid.match(reUid))
 			{
-				if (xhr.status == 200)
+				resultUid.innerText = '아이디는 영소문자로 시작하여 5자리 이상, 숫자와의 조합만 가능합니다.';
+				resultUid.style.color = 'red';
+				isUidOk = false;
+				return;
+			}
+			
+			// 서버 전송
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', '/Jboard2/user/checkUid.do?uid='+inputUid.value);
+			xhr.send();
+			
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState == XMLHttpRequest.DONE)
 				{
-					const data = JSON.parse(xhr.response);
-					
-					if (data.result > 0)
+					if (xhr.status == 200)
 					{
-						resultUid.innerText = '이미 사용중인 아이디입니다.';
-						resultUid.style.color = 'red';
-						isUidOk = false;
-					}
-					else
-					{
-						resultUid.innerText = '사용 가능한 아이디입니다.'
-						resultUid.style.color = 'green';
-						isUidOk = true;
+						const data = JSON.parse(xhr.response);
+						
+						if (data.result > 0)
+						{
+							resultUid.innerText = '이미 사용중인 아이디입니다.';
+							resultUid.style.color = 'red';
+							isUidOk = false;
+						}
+						else
+						{
+							resultUid.innerText = '사용 가능한 아이디입니다.'
+							resultUid.style.color = 'green';
+							isUidOk = true;
+						}
 					}
 				}
 			}
-		}
-	} // btnCheckUid.onclick end
+		} // btnCheckUid.onclick end
+	}
 	
 	// 닉네임 중복체크
 	$('#btnCheckNick').click(function(){
@@ -115,4 +118,4 @@ window.onload = function(){
 			}
 		});
 	});
-} // onload end
+});

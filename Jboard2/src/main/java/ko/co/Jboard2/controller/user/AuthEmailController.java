@@ -54,6 +54,13 @@ public class AuthEmailController extends HttpServlet {
 			if (result == 1)
 				status = service.sendCodeByEmail(email); // 전송결과(1 or 0)
 		}
+		else if (type.equals("MODIFY")) // 마이페이지 - 이메일 변경 시
+		{
+			result = service.selectCountEmail(email); // 일치하는 이메일 존재여부(1 or 0)
+			
+			if (result == 0)
+				status = service.sendCodeByEmail(email); // 전송결과(1 or 0)
+		}
 			
 		// JSON 생성
 		JsonObject json = new JsonObject();

@@ -251,7 +251,26 @@ public class UserDAO extends DBHelper {
 		return null;
 	}
 	
-	public void updateUser(UserDTO dto) {}
+	public void updateUser(UserDTO dto) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_USER);
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getNick());
+			psmt.setString(3, dto.getEmail());
+			psmt.setString(4, dto.getHp());
+			psmt.setString(5, dto.getZip());
+			psmt.setString(6, dto.getAddr1());
+			psmt.setString(7, dto.getAddr2());
+			psmt.setString(8, dto.getUid());
+			
+			psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			logger.error("updateUser() error : " + e.getMessage());
+		}
+	}
 	public int updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
 		
 		int result = 0;
