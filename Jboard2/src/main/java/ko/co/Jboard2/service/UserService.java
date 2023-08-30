@@ -51,6 +51,9 @@ public class UserService {
 	public UserDTO selectUserByNameAndEmail(String name, String email) { // id 찾기
 		return dao.selectUserByNameAndEmail(name, email);
 	}
+	public int selectCountUidAndEmail(String uid, String email) { // 비밀번호 찾기
+		return dao.selectCountUidAndEmail(uid, email);
+	}
 	public UserDTO selectUser(String uid, String pass) {
 		return dao.selectUser(uid, pass);
 	}
@@ -59,6 +62,9 @@ public class UserService {
 	}
 	public void updateUser(UserDTO dto) {
 		dao.updateUser(dto);
+	}
+	public void updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
+		dao.updateUserPass(uid, pass);
 	}
 	public void deleteUser(String uid) {
 		dao.deleteUser(uid);
@@ -71,7 +77,7 @@ public class UserService {
 		generatedCode = String.valueOf(code);
 		
 		// 기본정보
-		String sender = "oooq3o@gmail.com";
+		String sender   = "oooq3o@gmail.com";
 		String password = "nogwfaudlkjxyheh";
 		String title    = "Jboard2 인증코드입니다.";
 		String content  = "<br><h1>인증코드는 "+code+" 입니다.</h1>";

@@ -26,6 +26,7 @@ public class AuthEmailController extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		String type  = req.getParameter("type");
+		String uid   = req.getParameter("uid");
 		String name  = req.getParameter("name");
 		String email = req.getParameter("email");
 		
@@ -35,11 +36,20 @@ public class AuthEmailController extends HttpServlet {
 		if (type.equals("REGISTER")) // 회원가입
 		{
 			result = service.selectCountEmail(email); // 중복여부(1 or 0)
-			status = service.sendCodeByEmail(email);  // 전송결과(1 or 0)
+			
+			if (result == 0)
+				status = service.sendCodeByEmail(email);  // 전송결과(1 or 0)
 		}
 		else if (type.equals("FIND_ID")) // id 찾기
 		{
 			result = service.selectCountNameAndEmail(name, email); // 일치하는 이름과 이메일 존재여부(1 or 0)
+			
+			if (result == 1)
+				status = service.sendCodeByEmail(email); // 전송결과(1 or 0)
+		}
+		else if (type.equals("FIND_PASS")) // 비밀번호 찾기
+		{
+			result = service.selectCountUidAndEmail(uid, email); // 일치하는 아이디와 이메일 존재여부(1 or 0)
 			
 			if (result == 1)
 				status = service.sendCodeByEmail(email); // 전송결과(1 or 0)

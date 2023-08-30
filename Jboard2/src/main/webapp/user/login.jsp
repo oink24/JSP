@@ -9,6 +9,8 @@
 		alert('로그아웃되었습니다.');
 	else if (success == 101) // 인증없이(로그인X) list 요청
 		alert('로그인을 먼저 하셔야 합니다.');
+	else if (success == 300)
+		alert('비밀번호 변경이 완료되었습니다.');
 </script>
 <main id="user">
     <section class="login">

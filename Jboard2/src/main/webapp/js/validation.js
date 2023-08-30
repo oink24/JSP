@@ -24,7 +24,7 @@ $(function(){
 	// 아이디 입력값 검사 (유효성검증 후 다시 포커스해서 수정 방지)
 	$('input[name=uid]').keydown(function(){
 		
-		$('."resultUid"').text('');
+		$('.resultUid').text('');
 		isUidOk = false;
 	});
 	

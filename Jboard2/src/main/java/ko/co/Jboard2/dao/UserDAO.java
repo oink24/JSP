@@ -186,6 +186,28 @@ public class UserDAO extends DBHelper {
 		
 		return dto;
 	}
+	public int selectCountUidAndEmail(String uid, String email) { // 비밀번호 찾기
+		
+		int result = 0;
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_UID_EMAIL);
+			psmt.setString(1, uid);
+			psmt.setString(2, email);
+			
+			rs = psmt.executeQuery();
+			
+			if (rs.next())
+				result = rs.getInt(1);
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error("selectCountUidAndEmail error : " + e.getMessage());
+		}
+		
+		return result;
+	}
 	
 	public UserDTO selectUser(String uid, String pass) {
 		
@@ -230,6 +252,20 @@ public class UserDAO extends DBHelper {
 	}
 	
 	public void updateUser(UserDTO dto) {}
+	public void updateUserPass(String uid, String pass) { // 비밀번호 찾기 시 비밀번호 재설정
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_USER_PASS);
+			psmt.setString(1, pass);
+			psmt.setString(2, uid);
+			
+			psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			logger.error("updatePass() error : " + e.getMessage());
+		}
+	}
 	
 	public void deleteUser(String uid) {}
 }

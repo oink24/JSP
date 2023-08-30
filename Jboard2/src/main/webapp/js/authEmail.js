@@ -8,6 +8,7 @@ $(function(){
 	$('#btnEmailCode').click(function(){
 		
 		const type  = $('input[name=type]').val();
+		const uid   = $('input[name=uid]').val();
 		const name  = $('input[name=name]').val();
 		const email = $('input[name=email]').val();
 		
@@ -17,11 +18,13 @@ $(function(){
 			$('.resultEmail').css('color', 'red').text('유효한 이메일이 아닙니다.');
 			isEmailOk = false;
 			$('.resultEmailForId').css('color', 'red').text('유효한 이메일이 아닙니다.');
+			$('.resultEmailForPass').css('color', 'red').text('유효한 이메일이 아닙니다.');
 			return;
 		}
 		
 		const jsonData = {
 			"type": type,
+			"uid": uid,
 			"name": name,
 			"email": email
 		};
@@ -32,6 +35,7 @@ $(function(){
 		preventDoubleClick = true;
 		$('.resultEmail').css('color', 'red').text('인증코드 전송 중입니다. 잠시만 기다려주세요.');
 		$('.resultEmailForId').css('color', 'red').text('인증코드 전송 중입니다. 잠시만 기다려주세요.');
+		$('.resultEmailForPass').css('color', 'red').text('인증코드 전송 중입니다. 잠시만 기다려주세요.');
 		
 		setTimeout(function(){
 			
@@ -51,11 +55,13 @@ $(function(){
 						if (data.status > 0)
 						{
 							$('.resultEmailForId').css('color', 'red').text('이메일을 확인 후 인증코드를 입력하세요.');
+							$('.resultEmailForPass').css('color', 'red').text('이메일을 확인 후 인증코드를 입력하세요.');
 							$('input[name=auth]').prop('disabled', false);
 						}
 						else
 						{
 							$('.resultEmailForId').css('color', 'red').text('인증코드 전송이 실패했습니다. 잠시후 다시 시도하십시오.');
+							$('.resultEmailForPass').css('color', 'red').text('인증코드 전송이 실패했습니다. 잠시후 다시 시도하십시오.');
 						}
 					}
 					else
@@ -70,6 +76,7 @@ $(function(){
 						{
 							$('.resultEmail').css('color', 'red').text('인증코드 전송이 실패했습니다. 잠시후 다시 시도하십시오.');
 							$('.resultEmailForId').css('color', 'red').text('해당하는 사용자와 이메일이 일치하지않습니다.');
+							$('.resultEmailForPass').css('color', 'red').text('해당하는 아이디와 이메일이 일치하지않습니다.');
 						}
 					}
 					
@@ -99,12 +106,14 @@ $(function(){
 				{
 					$('.resultEmail').css('color', 'green').text('이메일 인증이 완료되었습니다.');
 					$('.resultEmailForId').css('color', 'green').text('이메일 인증이 완료되었습니다.');
+					$('.resultEmailForPass').css('color', 'green').text('이메일 인증이 완료되었습니다.');
 					isEmailOk = true;
 				}
 				else
 				{
 					$('.resultEmail').css('color', 'red').text('이메일 인증이 실패하였습니다.다시 시도하십시오.');
 					$('.resultEmailForId').css('color', 'red').text('이메일 인증이 실패하였습니다.다시 시도하십시오.');
+					$('.resultEmailForPass').css('color', 'red').text('이메일 인증이 실패하였습니다.다시 시도하십시오.');
 					isEmailOk = false;
 				}
 			}
