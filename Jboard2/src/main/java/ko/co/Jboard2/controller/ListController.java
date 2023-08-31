@@ -31,7 +31,7 @@ public class ListController extends HttpServlet {
 		HttpSession session = req.getSession();
 		UserDTO sessUser = (UserDTO) session.getAttribute("sessUser"); // 로그인 사용자 객체
 		
-		String pg = req.getParameter("pg");
+		String pg = req.getParameter("pg"); // 현재 페이지번호 수신
 		
 		// 페이지 관련 변수
 		int currentPage  = service.getCurrentPage(pg);    // 현재 페이지 번호
@@ -46,6 +46,7 @@ public class ListController extends HttpServlet {
 		
 		if (sessUser != null)
 		{
+			// VIEW 공유 참조
 			req.setAttribute("articles", articles);
 			req.setAttribute("currentPage", currentPage);
 			req.setAttribute("lastPageNum", lastPageNum);
