@@ -1,6 +1,10 @@
 package ko.co.Jboard2.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ko.co.Jboard2.db.DBHelper;
 import ko.co.Jboard2.db.SQL;
@@ -8,6 +12,8 @@ import ko.co.Jboard2.dto.ArticleDTO;
 
 public class ArticleDAO extends DBHelper {
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	public int insertArticle(ArticleDTO dto) {
 		
 		int no = 0;
@@ -43,8 +49,61 @@ public class ArticleDAO extends DBHelper {
 		return null;
 	}
 	
-	public List<ArticleDTO> selectArticles() {
-		return null;
+	public List<ArticleDTO> selectArticles(int start) {
+		
+		List<ArticleDTO> articles = new ArrayList<>();
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.SELECT_ARTICLES);
+			psmt.setInt(1, start);
+			
+			rs = psmt.executeQuery();
+			
+			while (rs.next())
+			{
+				ArticleDTO article = new ArticleDTO();
+				article.setNo(rs.getInt(1));
+				article.setParent(rs.getInt(2));
+				article.setComment(rs.getInt(3));
+				article.setCate(rs.getString(4));
+				article.setTitle(rs.getString(5));
+				article.setContent(rs.getString(6));
+				article.setFile(rs.getInt(7));
+				article.setHit(rs.getInt(8));
+				article.setWriter(rs.getString(9));
+				article.setRegip(rs.getString(10));
+				article.setRdate(rs.getString(11));
+				article.setNick(rs.getString(12));
+				
+				articles.add(article);
+			}
+			
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return articles;
+	}
+	public int selectCountTotal() {
+		
+		int total = 0;
+		try {
+			conn = getConnection();
+			stmt = conn.createStatement();			
+			rs = stmt.executeQuery(SQL.SELECT_COUNT_TOTAL);
+
+			if(rs.next())
+				total = rs.getInt(1);
+			
+			close();
+			
+		}catch(Exception e) {
+			logger.error("selectCountTotal() error : " + e.getMessage());
+		}
+		
+		return total;
 	}
 	
 	public void updateArticle(ArticleDTO dto) {

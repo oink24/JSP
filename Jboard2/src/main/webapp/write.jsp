@@ -8,12 +8,12 @@
                 <caption>글쓰기</caption>
                 <tr>
                     <th>제목</th>
-                    <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>
+                    <td><input type="text" name="title" required placeholder="제목을 입력하세요."/></td>
                 </tr>
                 <tr>
                     <th>내용</th>
                     <td>
-                        <textarea name="content"></textarea>
+                        <textarea name="content" required></textarea>
                     </td>
                 </tr>
                 <tr>
