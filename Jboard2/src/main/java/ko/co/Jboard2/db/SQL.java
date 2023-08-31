@@ -53,9 +53,11 @@ public class SQL {
 	public static final String INSERT_ARTICLE = "INSERT INTO `Article` SET "
 											+ "`title`=?, "
 											+ "`content`=?, "
+											+ "`file`=?, "
 											+ "`writer`=?, "
 											+ "`regip`=?, "
 											+ "`rdate`=NOW()";
+	public static final String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `Article`";
 	public static final String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
 	public static final String SELECT_ARTICLES = "SELECT a.*, b.`nickname` FROM `Article` AS a "
 											+ "JOIN `User` AS b ON a.writer = b.uid "
@@ -66,6 +68,13 @@ public class SQL {
 	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?, `content`=? WHERE `no`=?";
 	public static final String UPDATE_HIT	  = "UPDATE `Article` SET `hit`=? WHERE `no`=?";
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
+	
+	// File
+	public static final String INSERT_FILE = "INSERT INTO `File` SET "
+											+ "`ano`=?, "
+											+ "`oFile`=?, "
+											+ "`sFile`=?, "
+											+ "`rdate`=NOW()";
 	
 	// comment
 	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "

@@ -2,7 +2,7 @@
 <%@ include file="./_header.jsp" %>
 <main id="board">
     <section class="write">
-        <form action="/Jboard2/write.do" method="POST">
+        <form action="/Jboard2/write.do" method="POST" enctype="multipart/form-data">
         	<input type="hidden" name="writer" value="${sessUser.uid}">
             <table border="0">
                 <caption>글쓰기</caption>
