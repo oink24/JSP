@@ -122,8 +122,8 @@ public class ArticleDAO extends DBHelper {
 		int total = 0;
 		try {
 			conn = getConnection();
-			stmt = conn.createStatement();			
-			rs = stmt.executeQuery(SQL.SELECT_COUNT_TOTAL);
+			psmt = conn.prepareStatement(SQL.SELECT_COUNT_TOTAL);			
+			rs = psmt.executeQuery();
 
 			if(rs.next())
 				total = rs.getInt(1);
@@ -131,7 +131,7 @@ public class ArticleDAO extends DBHelper {
 			close();
 			
 		}catch(Exception e) {
-			logger.error("selectCountTotal() error : " + e.getMessage());
+			e.printStackTrace();
 		}
 		
 		return total;
