@@ -150,34 +150,4 @@ public enum ArticleService {
 		
 		return (currentPage - 1) * 10;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

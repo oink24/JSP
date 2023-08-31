@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="./_header.jsp" %>
 <main id="board">
     <section class="list">                
@@ -17,13 +17,13 @@
                 <th>조회</th>
             </tr>
             <c:forEach var="article" items="${articles}">
-	            <tr>
-	                <td>${pageStartNum = pageStartNum - 1}</td>
-	                <td><a href="./view.do?no=${article.no}">${article.title}</a> [${article.comment}]</td>
-	                <td>${article.nick}</td>
-	                <td>${article.rdate}</td>
-	                <td>${article.hit}</td>
-	            </tr>
+            <tr>
+                <td>${pageStartNum = pageStartNum - 1}</td>
+                <td><a href="./view.do?no=${article.no}">${article.title}</a> [${article.comment}]</td>
+                <td>${article.nick}</td>
+                <td>${article.rdate}</td>
+                <td>${article.hit}</td>
+            </tr>
             </c:forEach>
         </table>
         <div class="page">
