@@ -500,7 +500,7 @@ footer > p {
 }
 
 .btnRegister {}
-.btnWrite {
+.list > .btnWrite {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -508,6 +508,7 @@ footer > p {
     background: #4b545e; 
     color: #fff;
 }
+.view form .btnWrite {border: 1px solid #3b3c3f; background: #4b545e; color: #fff;}
 
 .btnComplete {
     border: 1px solid #3b3c3f; 
