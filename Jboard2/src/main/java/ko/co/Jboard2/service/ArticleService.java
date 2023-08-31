@@ -25,7 +25,7 @@ public enum ArticleService {
 	public int insertArticle(ArticleDTO dto) {
 		return dao.insertArticle(dto);
 	}	
-	public ArticleDTO selectArticle(int no) {
+	public ArticleDTO selectArticle(String no) {
 		return dao.selectArticle(no);
 	}
 	public List<ArticleDTO> selectArticles(int start) {
