@@ -41,6 +41,26 @@ public enum ArticleService {
 		dao.deleteArticle(no);
 	}
 	
+	// 댓글 관련
+	public void insertComment(ArticleDTO dto) {
+		dao.insertComment(dto);
+	}
+	public void updateArticleForCommentPlus(String no) {
+		dao.updateArticleForCommentPlus(no);
+	}
+	public List<ArticleDTO> selectComments(String parent) {
+		return dao.selectComments(parent);
+	}
+	public void updateComment(String no, String content) {
+		dao.updateComment(no, content);
+	}
+	public void deleteComment(String no) {
+		dao.deleteComment(no);
+	}
+	public void updateArticleForCommentMinus(String no) {
+		dao.updateArticleForCommentMinus(no);
+	}
+	
 	// 업로드 경로 구하기
 	public String getFilePath(HttpServletRequest req) {
 		// 파일 업로드 경로 구하기

@@ -39,7 +39,7 @@ public class ArticleDTO {
 		this.parent = parent;
 	}
 	public void setParent(String parent) {
-		this.no = Integer.parseInt(parent);
+		this.parent = Integer.parseInt(parent);
 	}
 	public int getComment() {
 		return comment;
