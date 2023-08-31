@@ -41,7 +41,7 @@ public class ListController extends HttpServlet {
 		int pageStartNum = service.getPageStartNum(total, currentPage);       // 페이지 게시글 시작번호
 		int start        = service.getStartNum(currentPage); // 시작 인덱스
 		
-		// 글 조회
+		// 게시글 조회
 		List<ArticleDTO> articles = service.selectArticles(start);
 		
 		if (sessUser != null)
