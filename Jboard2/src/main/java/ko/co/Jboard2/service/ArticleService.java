@@ -92,11 +92,9 @@ public enum ArticleService {
 	// 파일 업로드
 	public MultipartRequest uploadFile(HttpServletRequest req) {
 		
-		// 파일 경로 구하기
-		String path = getFilePath(req);
 		
-		// 최대 업로드 파일 크기
-		int maxSize = 1024 * 1024 * 10;
+		String path = getFilePath(req); // 파일 경로 구하기
+		int maxSize = 1024 * 1024 * 10; // 최대 업로드 파일 크기
 		
 		// 파일 업로드 및 Multipart 객체 생성
 		MultipartRequest mr = null;
