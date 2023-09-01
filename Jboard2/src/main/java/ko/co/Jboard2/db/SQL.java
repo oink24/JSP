@@ -78,6 +78,7 @@ public class SQL {
 											+ "`oFile`=?, "
 											+ "`sFile`=?, "
 											+ "`rdate`=NOW()";
+	public static final String SELECT_FILE = "SELECT * FROM `File` WHERE `fno`=?";
 	
 	// comment
 	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "

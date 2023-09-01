@@ -12,7 +12,10 @@
             <c:if test="${article.file > 0}">
             <tr>
                 <th>파일</th>
-                <td><a href="#">2020년 상반기 매출자료.xls</a>&nbsp;<span>7</span>회 다운로드</td>
+                <td>
+                	<a href="/Jboard2/fileDownload.do?fno=${article.fileDto.fno}">${article.fileDto.ofile}</a>&nbsp;
+                	<span>${article.fileDto.download}</span>회 다운로드
+                </td>
             </tr>
             </c:if>
             <tr>
@@ -57,7 +60,7 @@
                 <textarea name="content"></textarea>
                 <div>
                     <a href="#" class="btn btnCancel">취소</a>
-                    <input type="submit" class="btn btnWrite" value="작성완료"/>
+                    <input type="submit" class="btn btnComplete" value="작성완료"/>
                 </div>
             </form>
         </section>
