@@ -58,7 +58,10 @@ public class SQL {
 											+ "`regip`=?, "
 											+ "`rdate`=NOW()";
 	public static final String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `Article`";
-	public static final String SELECT_ARTICLE = "SELECT * FROM `Article` WHERE `no`=?";
+	public static final String SELECT_ARTICLE = "SELECT * FROM `Article` AS a " 
+											+ "LEFT JOIN `File` AS b "
+											+ "ON a.`no` = b.`ano` "
+											+ "WHERE `no`=?";
 	public static final String SELECT_ARTICLES = "SELECT a.*, b.`nickname` FROM `Article` AS a "
 											+ "JOIN `User` AS b ON a.writer = b.uid "
 											+ "WHERE `parent`=0 "

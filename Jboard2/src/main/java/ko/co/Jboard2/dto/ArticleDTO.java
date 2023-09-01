@@ -14,13 +14,22 @@ public class ArticleDTO {
 	private String regip;
 	private String rdate;
 	
-	// 추가필드
+	// 게시글 목록(list)에서 작성자(닉네임)을 위한 추가필드
 	private String nick;
 	public String getNick() {
 		return nick;
 	}
 	public void setNick(String nick) {
 		this.nick = nick;
+	}
+	
+	// 파일 다운로드를 위한 추가필드
+	private FileDTO fileDto;
+	public FileDTO getFileDto() {
+		return fileDto;
+	}
+	public void setFileDto(FileDTO fileDto) {
+		this.fileDto = fileDto;
 	}
 	
 	public int getNo() {
