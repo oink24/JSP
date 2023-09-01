@@ -32,17 +32,18 @@ public class ListController extends HttpServlet {
 		UserDTO sessUser = (UserDTO) session.getAttribute("sessUser"); // 로그인 사용자 객체
 		
 		String pg = req.getParameter("pg"); // 현재 페이지번호 수신
+		String search = req.getParameter("search");
 		
 		// 페이지 관련 변수
 		int currentPage  = service.getCurrentPage(pg);    // 현재 페이지 번호
-		int total        = service.selectCountTotal();    // 전체 게시물 갯수
+		int total        = service.selectCountTotal(search);    // 전체 게시물 갯수
 		int lastPageNum  = service.getLastPageNum(total); // 마지막 페이지 번호
 		int[] result     = service.getPageGroupNum(currentPage, lastPageNum); // 페이지그룹 start, end 번호
 		int pageStartNum = service.getPageStartNum(total, currentPage);       // 페이지 게시글 시작번호
 		int start        = service.getStartNum(currentPage); // 시작 인덱스
 		
 		// 게시글 조회
-		List<ArticleDTO> articles = service.selectArticles(start);
+		List<ArticleDTO> articles = service.selectArticles(start, search);
 		
 		if (sessUser != null)
 		{

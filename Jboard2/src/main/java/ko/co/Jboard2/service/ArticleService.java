@@ -35,11 +35,11 @@ public enum ArticleService {
 	public ArticleDTO selectArticle(String no) {
 		return dao.selectArticle(no);
 	}
-	public List<ArticleDTO> selectArticles(int start) {
-		return dao.selectArticles(start);
+	public List<ArticleDTO> selectArticles(int start, String search) {
+		return dao.selectArticles(start, search);
 	}
-	public int selectCountTotal() {
-		return dao.selectCountTotal();
+	public int selectCountTotal(String search) {
+		return dao.selectCountTotal(search);
 	}
 	public void updateArticle(ArticleDTO dto) {
 		dao.updateArticle(dto);
