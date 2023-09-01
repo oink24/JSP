@@ -49,8 +49,8 @@ public enum ArticleService {
 	}
 	
 	// 댓글 관련
-	public void insertComment(ArticleDTO dto) {
-		dao.insertComment(dto);
+	public int insertComment(ArticleDTO dto) {
+		return dao.insertComment(dto);
 	}
 	public void updateArticleForCommentPlus(String no) {
 		dao.updateArticleForCommentPlus(no);
@@ -61,8 +61,8 @@ public enum ArticleService {
 	public void updateComment(String no, String content) {
 		dao.updateComment(no, content);
 	}
-	public void deleteComment(String no) {
-		dao.deleteComment(no);
+	public int deleteComment(String no) {
+		return dao.deleteComment(no);
 	}
 	public void updateArticleForCommentMinus(String no) {
 		dao.updateArticleForCommentMinus(no);

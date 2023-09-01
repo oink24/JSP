@@ -187,7 +187,9 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	// 댓글 관련 CRUD
-	public void insertComment(ArticleDTO dto) {
+	public int insertComment(ArticleDTO dto) {
+		
+		int result = 0;
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
@@ -196,12 +198,14 @@ public class ArticleDAO extends DBHelper {
 			psmt.setString(3, dto.getWriter());
 			psmt.setString(4, dto.getRegip());
 			
-			psmt.executeUpdate();
+			result = psmt.executeUpdate();
 			close();
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return result;
 	}
 	public void updateArticleForCommentPlus(String no) {
 		try {
@@ -257,6 +261,34 @@ public class ArticleDAO extends DBHelper {
 	
 	public void updateComment(String no, String content) {}
 	
-	public void deleteComment(String no) {}
-	public void updateArticleForCommentMinus(String no) {}
+	public int deleteComment(String no) {
+		
+		int result = 0;
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
+			psmt.setString(1, no);
+			
+			result = psmt.executeUpdate();
+			close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	public void updateArticleForCommentMinus(String no) {
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.UPDATE_ARTICLE_FOR_COMMENT_MINUS);
+			psmt.setString(1, no);
+			
+			psmt.executeUpdate();
+			close();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
