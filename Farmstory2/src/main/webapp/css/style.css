@@ -402,7 +402,7 @@ main > .info > div > .account {
     color: #8c8c8c;
     padding-left: 20px;
     box-sizing: border-box;
-    background-image: url(../img/sub_page_nav_ico.gif);
+    background-image: url('../images/sub_page_nav_ico.gif');
     background-repeat: no-repeat;
     background-position: 10px;
 }
