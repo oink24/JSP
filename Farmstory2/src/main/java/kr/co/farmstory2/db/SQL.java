@@ -71,7 +71,7 @@ public class SQL {
 											+ "WHERE `parent`=?";
 	public static final String SELECT_COMMENT_LATEST = "SELECT "
 											+ "a.*, "
-											+ "b.`nick` "
+											+ "b.`nickname` "
 											+ "FROM `Article` AS a "
 											+ "JOIN `User` AS b ON a.writer = b.uid "
 											+ "WHERE `parent`!=0 "

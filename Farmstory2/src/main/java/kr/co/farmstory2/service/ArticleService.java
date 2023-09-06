@@ -59,11 +59,11 @@ public enum ArticleService {
 	public List<ArticleDTO> selectComments(String parent) {
 		return dao.selectComments(parent);
 	}
-	public void updateComment(ArticleDTO dto) {
-		dao.updateComment(dto);
+	public int updateComment(String no, String content) {
+		return dao.updateComment(no, content);
 	}
-	public void deleteComment(String no) {
-		dao.deleteComment(no);
+	public int deleteComment(String no) {
+		return dao.deleteComment(no);
 	}
 	public void updateArticleForCommentMinus(String no) {
 		dao.updateArticleForCommentMinus(no);
