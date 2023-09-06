@@ -212,9 +212,12 @@ public class ArticleDAO extends DBHelper {
 	}
 	
 	// 댓글 관련
-	public void insertComment(ArticleDTO dto) {
+	public ArticleDTO insertComment(ArticleDTO dto) { // 댓글을 등록하고 등록한 해당 댓글을 바로 조회해서 dto 출력
 		try {
 			conn = getConnection();
+			conn.setAutoCommit(false);
+			
+			stmt = conn.createStatement();
 			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
 			psmt.setInt(1, dto.getParent());
 			psmt.setString(2, dto.getContent());
@@ -222,12 +225,34 @@ public class ArticleDAO extends DBHelper {
 			psmt.setString(4, dto.getRegip());
 			
 			psmt.executeUpdate();
+			rs = stmt.executeQuery(SQL.SELECT_COMMENT_LATEST);
+			conn.commit();
+			
+			if (rs.next())
+			{
+				dto.setNo(rs.getInt(1));
+				dto.setParent(rs.getInt(2));
+				dto.setComment(rs.getInt(3));
+				dto.setCate(rs.getString(4));
+				dto.setTitle(rs.getString(5));
+				dto.setContent(rs.getString(6));
+				dto.setFile(rs.getInt(7));
+				dto.setHit(rs.getInt(8));
+				dto.setWriter(rs.getString(9));
+				dto.setRegip(rs.getString(10));
+				dto.setRdateYYMMDD(rs.getString(11));
+				dto.setNick(rs.getString(12));
+			}
 			
 			close();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		logger.debug("dto : " + dto);
+		
+		return dto;
 	}
 	public void updateArticleForCommentPlus(String no) {
 		try {

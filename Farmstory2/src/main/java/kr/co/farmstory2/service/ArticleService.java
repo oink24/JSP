@@ -41,11 +41,32 @@ public enum ArticleService {
 	public int selectCountTotal(String search) {
 		return dao.selectCountTotal(search);
 	}
+	public List<ArticleDTO> selectLatests(String cate, int size) {
+		return dao.selectLatests(cate, size);
+	}
 	public void updateArticle(ArticleDTO dto) {
 		dao.updateArticle(dto);
 	}
 	public void deleteArticle(String no) {
 		dao.deleteArticle(no);
+	}
+	public ArticleDTO insertComment(ArticleDTO dto) {
+		return dao.insertComment(dto);
+	}
+	public void updateArticleForCommentPlus(String no) {
+		dao.updateArticleForCommentPlus(no);
+	}
+	public List<ArticleDTO> selectComments(String parent) {
+		return dao.selectComments(parent);
+	}
+	public void updateComment(ArticleDTO dto) {
+		dao.updateComment(dto);
+	}
+	public void deleteComment(String no) {
+		dao.deleteComment(no);
+	}
+	public void updateArticleForCommentMinus(String no) {
+		dao.updateArticleForCommentMinus(no);
 	}
 	
 	// 파일 업로드 경로 구하기

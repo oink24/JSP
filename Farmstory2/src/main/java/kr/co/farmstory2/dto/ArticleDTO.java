@@ -114,4 +114,14 @@ public class ArticleDTO {
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}
+	public void setRdateYYMMDD(String rdate) {
+		this.rdate = rdate.substring(2, 10);
+	}
+	
+	@Override
+	public String toString() {
+		return "ArticleDTO [no=" + no + ", parent=" + parent + ", comment=" + comment + ", cate=" + cate + ", title="
+				+ title + ", content=" + content + ", file=" + file + ", hit=" + hit + ", writer=" + writer + ", regip="
+				+ regip + ", rdate=" + rdate + ", nick=" + nick + ", fileDto=" + fileDto + "]";
+	}
 }
