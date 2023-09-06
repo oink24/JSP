@@ -19,6 +19,6 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = req.getSession();
 		session.invalidate();
 		
-		resp.sendRedirect("/Farmstory2/user/login.do?success=200");
+		resp.sendRedirect("/Farmstory2/index.do?success=200");
 	}
 }

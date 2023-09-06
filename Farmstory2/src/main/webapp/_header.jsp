@@ -16,6 +16,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>    
+    <script>
+		const success = ${success};
+		
+		if (success == 100) // 아이디 비밀번호 불일치
+			alert('로그인에 실패하였습니다. 다시 확인하세요.');
+		else if (success == 200) // 로그아웃
+			alert('로그아웃되었습니다.');
+    </script>
 </head>
 <body>
     <div id="container">
