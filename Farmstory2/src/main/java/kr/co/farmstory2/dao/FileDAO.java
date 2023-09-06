@@ -29,7 +29,7 @@ public class FileDAO extends DBHelper {
 		}
 	}
 	
-	public FileDTO selecttFile(String fno) {
+	public FileDTO selectFile(String fno) {
 		
 		FileDTO dto = null;
 		try {
