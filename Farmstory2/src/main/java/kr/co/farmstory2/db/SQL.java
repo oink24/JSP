@@ -46,7 +46,7 @@ public class SQL {
 	public static final String SELECT_LATESTS = "SELECT `no`, `title`, `rdate` FROM `Article` "
 											+ "WHERE `parent`=0 AND `category`=? "
 											+ "Order By `no` DESC LIMIT ?";
-	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?, `content`=? WHERE `no`=? AND `category`=?";
+	public static final String UPDATE_ARTICLE = "UPDATE `Article` SET `title`=?, `content`=? WHERE `no`=?";
 	public static final String DELETE_ARTICLE = "DELETE FROM `Article` WHERE `no`=? OR `parent`=?";
 	
 	// File
