@@ -32,7 +32,7 @@
         <header>
             <a href="/Farmstory2" class="logo"><img src="${ctxPath}/images/logo.png" alt="로고"/></a>
             <p>
-                <a href="/Farmstory2/index.do">HOME |</a>
+                <a href="/Farmstory2">HOME |</a>
                 <c:if test="${empty sessUser}">
                 	<a href="${ctxPath}/user/login.do">로그인 |</a>
                 	<a href="${ctxPath}/user/terms.do">회원가입 |</a>
