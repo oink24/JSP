@@ -82,7 +82,7 @@ public class SQL {
 	public static final String UPDATE_ARTICLE_FOR_COMMENT_MINUS = "UPDATE `Article` SET `comment` = `comment` - 1 WHERE `no`=?";
 	
 	// product
-	public final static String INSERT_PRODUCT = "INSERT INTO `Product` SET "
+	public static final String INSERT_PRODUCT = "INSERT INTO `Product` SET "
 											+ "`type`=?,"
 											+ "`pName`=?,"
 											+ "`price`=?,"
@@ -94,11 +94,11 @@ public class SQL {
 											+ "`seller`=?,"
 											+ "`etc`=?,"
 											+ "`rdate`=NOW()";
-	public final static String SELECT_PRODUCT = "SELECT * FROM `Product` WHERE `pNo`=?";
-	public final static String SELECT_PRODUCTS_ALL = "SELECT * FROM `Product` WHERE `stock` > 0 LIMIT ?, 10";
-	public final static String SELECT_PRODUCTS_TYPE = "SELECT * FROM `Product` WHERE `stock` > 0 AND `type`=? LIMIT ?, 10";
-	public final static String SELECT_COUNT_PRODUCTS_ALL = "SELECT COUNT(*) FROM `Product` WHERE `stock` > 0";
-	public final static String SELECT_COUNT_PRODUCTS_TYPE = "SELECT COUNT(*) FROM `Product` WHERE `stock` > 0 AND `type`=?";
+	public static final String SELECT_PRODUCT = "SELECT * FROM `Product` WHERE `pNo`=?";
+	public static final String SELECT_PRODUCTS_ALL = "SELECT * FROM `Product` WHERE `stock` > 0 LIMIT ?, 10";
+	public static final String SELECT_PRODUCTS_TYPE = "SELECT * FROM `Product` WHERE `stock` > 0 AND `type`=? LIMIT ?, 10";
+	public static final String SELECT_COUNT_PRODUCTS_ALL = "SELECT COUNT(*) FROM `Product` WHERE `stock` > 0";
+	public static final String SELECT_COUNT_PRODUCTS_TYPE = "SELECT COUNT(*) FROM `Product` WHERE `stock` > 0 AND `type`=?";
 	
 	// order
 	public static final String INSERT_ORDER = "INSERT INTO `Order` SET "
