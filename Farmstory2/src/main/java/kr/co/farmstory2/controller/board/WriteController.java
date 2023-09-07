@@ -41,7 +41,8 @@ public class WriteController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		MultipartRequest mr = aService.uploadFile(req);
+		String path = aService.getPath(req, "/upload");
+		MultipartRequest mr = aService.uploadFile(req, path);
 		
 		// 폼 데이터 수신
 		String group   = mr.getParameter("group");
@@ -73,7 +74,7 @@ public class WriteController extends HttpServlet {
 		// 파일명 수정 및 파일 INSERT
 		if (oName != null)
 		{
-			String sName = aService.renameToFile(req, oName);
+			String sName = aService.renameToFile(req, path, oName);
 			
 			// 파일 INSERT
 			FileDTO fileDto = new FileDTO();

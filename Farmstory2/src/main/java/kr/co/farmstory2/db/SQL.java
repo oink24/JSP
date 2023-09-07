@@ -56,7 +56,8 @@ public class SQL {
 											+ "`sFile`=?, "
 											+ "`rdate`=NOW()";
 	public static final String SELECT_FILE = "SELECT * FROM `File` WHERE `fno`=?";
-	public final static String DELETE_FILE = "DELETE FROM `File` WHERE `ano`=?";
+	public static final String DELETE_FILE = "DELETE FROM `File` WHERE `ano`=?";
+	public static final String SELECT_FILE_SNAMES = "SELECT `sfile` FROM `File` WHERE `ano`=?";
 	
 	// comment
 	public static final String INSERT_COMMENT = "INSERT INTO `Article` SET "

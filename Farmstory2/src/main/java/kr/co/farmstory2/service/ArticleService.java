@@ -70,17 +70,15 @@ public enum ArticleService {
 	}
 	
 	// 파일 업로드 경로 구하기
-	public String getFilePath(HttpServletRequest req) {
+	public String getPath(HttpServletRequest req, String dir) {
 		
 		ServletContext ctx = req.getServletContext();
-		String path = ctx.getRealPath("/upload");
+		String path = ctx.getRealPath(dir);
 		return path;
 	}
 	
 	// 파일명 수정
-	public String renameToFile(HttpServletRequest req, String oName) {
-		
-		String path = getFilePath(req);
+	public String renameToFile(HttpServletRequest req, String path, String oName) {
 		
 		int i = oName.lastIndexOf(".");
 		String ext = oName.substring(i);
@@ -98,9 +96,8 @@ public enum ArticleService {
 	}
 	
 	// 파일 업로드
-	public MultipartRequest uploadFile(HttpServletRequest req) {
+	public MultipartRequest uploadFile(HttpServletRequest req, String path) {
 		
-		String path = getFilePath(req); // 파일 경로 구하기
 		int maxSize = 1024 * 1024 * 10; // 최대 업로드 파일 크기
 		
 		// 파일 업로드 및 Multipart 객체 생성
@@ -130,7 +127,7 @@ public enum ArticleService {
 		resp.setHeader("Cache-Control", "private");
 		
 		// response 파일 스트림 작업
-		String path = getFilePath(req);
+		String path = getPath(req, "/upload");
 		
 		File file = new File(path+"/"+dto.getSfile());
 		
