@@ -104,6 +104,12 @@ public enum ArticleService {
 		MultipartRequest mr = null;
 		
 		try {
+			// 업로드될 경로의 폴더가 존재하지 않을 경우 폴더생성
+			File upDir = new File(path);
+			if (!upDir.exists())
+				upDir.mkdirs();
+			
+			// 파일 업로드
 			mr = new MultipartRequest(req, 
 									  path, 
 									  maxSize, 
