@@ -47,6 +47,14 @@
 		<filter-name>CheckLoginFilter</filter-name>
 		<url-pattern>/board/delete.do</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CheckLoginFilter</filter-name>
+		<url-pattern>/market/order.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CheckLoginFilter</filter-name>
+		<url-pattern>/admin</url-pattern>
+	</filter-mapping>
   
 	<!-- 인코딩 필터 등록 -->
 	<filter>

@@ -5,13 +5,13 @@
 	const delivery = ${product.delivery};
 	
 	window.onload = function(){
-		const inputCount = document.getElementsByName('count')[0];
+		const inputCount = document.getElementsByName('count');
 		const inputTotal = document.getElementsByName('total')[0];
 		const inputFinal = document.getElementsByName('final')[0];
 		const totalNode  = document.getElementsByClassName('total')[0];
 		
 		// 상품수량 변경
-		inputCount.onchange = (e) => {
+		inputCount[0].onchange = (e) => {
 			e.preventDefault();
 			
 			let count = e.target.value;
@@ -20,7 +20,7 @@
 			
 			console.log('finalPrice : ' + finalPrice);
 			
-			inputCount.value = count;
+			inputCount[1].value = count;
 			inputTotal.value = total;
 			inputFinal.value = finalPrice;
 			

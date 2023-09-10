@@ -27,6 +27,7 @@ public class ListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+		String success = req.getParameter("success");
 		String type = req.getParameter("type");
 		String pg   = req.getParameter("pg");
 
@@ -44,6 +45,7 @@ public class ListController extends HttpServlet {
 		int start        = aService.getStartNum(currentPage); // 시작 인덱스
 		List<ProductDTO> products = pService.selectProducts(type, start);
 		
+		req.setAttribute("success", success);
 		req.setAttribute("type", type);
 		req.setAttribute("total", total);
 		req.setAttribute("currentPage", currentPage);

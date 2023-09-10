@@ -25,6 +25,8 @@
 			alert('로그인을 먼저 하셔야 합니다.');
 		else if (success == 200) // 로그아웃
 			alert('로그아웃되었습니다.');
+		else if (success == 300) // 상품 주문 완료
+			alert('주문이 완료되었습니다.');
     </script>
 </head>
 <body>
