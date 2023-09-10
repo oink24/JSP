@@ -53,6 +53,7 @@ public class ProductDAO extends DBHelper {
 				dto.setType(rs.getInt(2));
 				dto.setpName(rs.getString(3));
 				dto.setPrice(rs.getInt(4));
+				dto.setPriceWithComma(rs.getString(4)); // 콤마 포맷 적용된 가격
 				dto.setDelivery(rs.getInt(5));
 				dto.setStock(rs.getInt(6));
 				dto.setSold(rs.getInt(7));
@@ -90,6 +91,7 @@ public class ProductDAO extends DBHelper {
 				dto.setType(rs.getInt(2));
 				dto.setpName(rs.getString(3));
 				dto.setPrice(rs.getInt(4));
+				dto.setPriceWithComma(rs.getString(4)); // 콤마 포맷 적용된 가격
 				dto.setDelivery(rs.getInt(5));
 				dto.setStock(rs.getInt(6));
 				dto.setSold(rs.getInt(7));

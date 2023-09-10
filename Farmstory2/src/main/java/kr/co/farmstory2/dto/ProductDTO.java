@@ -3,6 +3,8 @@ package kr.co.farmstory2.dto;
 import java.io.File;
 import java.util.UUID;
 
+import kr.co.farmstory2.etc.Utils;
+
 public class ProductDTO {
 
 	private int pNo;
@@ -19,6 +21,7 @@ public class ProductDTO {
 	private String etc;
 	private String rdate;
 	private String path; // 추가필드
+	private String priceWithComma; // 추가필드
 	
 	public ProductDTO() {}
 	public ProductDTO(String path) {
@@ -123,6 +126,12 @@ public class ProductDTO {
 	}
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
+	}
+	public String getPriceWithComma() {
+		return priceWithComma;
+	}
+	public void setPriceWithComma(String price) {
+		this.priceWithComma = Utils.comma(price);
 	}
 	
 	public String fileRename(String thumb) {

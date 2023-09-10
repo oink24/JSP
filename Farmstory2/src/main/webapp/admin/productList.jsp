@@ -36,7 +36,7 @@
                     		<c:when test="${product.type eq 3}">곡물</c:when>
                     	</c:choose>
                     </td>
-                    <td>${product.price}원</td>
+                    <td>${product.priceWithComma}원</td>
                     <td>${product.stock}</td>
                     <td>${product.rdate}</td>
                 </tr>

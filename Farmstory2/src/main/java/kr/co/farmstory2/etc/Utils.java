@@ -1,4 +1,4 @@
-package kr.co.farmstory2.db;
+package kr.co.farmstory2.etc;
 
 import java.text.DecimalFormat;
 
