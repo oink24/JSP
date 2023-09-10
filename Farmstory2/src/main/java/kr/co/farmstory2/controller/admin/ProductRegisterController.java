@@ -3,6 +3,7 @@ package kr.co.farmstory2.controller.admin;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +26,15 @@ public class ProductRegisterController extends HttpServlet {
 	private ArticleService aService = ArticleService.INSTANCE;
 	private ProductService pService = ProductService.INSTANCE;
 
+	// 컨텍스트 경로(/Farmstory2) 전역변수
+	private String ctxPath;
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		
+		// 컨텍스트 경로(/Farmstory2) 구하기(최초 1번)
+		ctxPath = config.getServletContext().getContextPath();
+	}
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -64,6 +74,6 @@ public class ProductRegisterController extends HttpServlet {
 		logger.debug(dto.toString());
 		
 		pService.insertProduct(dto);
-		resp.sendRedirect("/Farmstory2/admin/productRegister.do?success=200");
+		resp.sendRedirect(ctxPath+"/admin/productRegister.do?success=200");
 	}
 }
