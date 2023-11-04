@@ -17,12 +17,12 @@
 [✔ 비밀번호 암호화 저장 구현정리](https://oink24.tistory.com/199)  
 
 #### - 게시글/댓글 관련
-[페이지 모듈화 구현정리](https://oink24.tistory.com/203)  
-[게시글 목록 구현정리](https://oink24.tistory.com/207)  
-[게시글 보기 구현정리](https://oink24.tistory.com/211)  
-[댓글 구현정리](https://oink24.tistory.com/212)  
-[게시글 수정/삭제 구현정리](https://oink24.tistory.com/224)  
-[게시글 조회수 구현정리](https://oink24.tistory.com/244)  
+[✔ 페이지 모듈화 구현정리](https://oink24.tistory.com/203)  
+[✔ 게시글 목록 구현정리](https://oink24.tistory.com/207)  
+[✔ 게시글 보기 구현정리](https://oink24.tistory.com/211)  
+[✔ 댓글 구현정리](https://oink24.tistory.com/212)  
+[✔ 게시글 수정/삭제 구현정리](https://oink24.tistory.com/224)  
+[✔ 게시글 조회수 구현정리](https://oink24.tistory.com/244)  
 
 #### - 기타
 [✔ DB 연동 모듈화 정리](https://oink24.tistory.com/200)  
